@@ -5,15 +5,15 @@ class TwitterMessage extends React.Component {
     super(props);
 
     this.state = {
-      value: props.maxChars
+      value: ''
     };
 
-    this.updateCharsLeft = this.updateCharsLeft.bind(this);
+    this.updateState = this.updateState.bind(this);
   }
 
-  updateCharsLeft(event) {
+  updateState(event) {
     this.setState({
-      value: this.props.maxChars - event.target.value.length
+      value: event.target.value
     });
   }
 
@@ -21,16 +21,11 @@ class TwitterMessage extends React.Component {
     return (
       <div>
         <strong>Your message:</strong>
-        <input onChange={this.updateCharsLeft} type="text" />
-        <small>{this.state.value} characters left</small>
+        <input type="text" value={this.state.value} onChange={this.updateState} />
+        <small>{this.props.maxChars - this.state.value.length} characters left</small>
       </div>
     );
   }
-}
-
-TwitterMessage.propTypes = {
-  maxChars: React.PropTypes.number,
-  value: React.PropTypes.string
 }
 
 module.exports = TwitterMessage;
