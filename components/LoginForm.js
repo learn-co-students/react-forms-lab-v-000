@@ -9,6 +9,7 @@ export default class LoginForm extends React.Component {
       username: '',
       password: ''
     };
+
     this.username = this.username.bind(this);
     this.password = this.password.bind(this);
     this.submit = this.submit.bind(this);
@@ -19,6 +20,7 @@ export default class LoginForm extends React.Component {
       username: e.target.value
     })
   }
+
   password(e){
     this.setState({
       password: e.target.value
@@ -27,9 +29,9 @@ export default class LoginForm extends React.Component {
 
   submit(e){
     e.preventDefault();
-    // const {username, password} = this.state;
-    // or
-    if (!this.state.username || !this.state.password){
+    const {username, password} = this.state
+
+    if (!username || !password) {
       return null
     }
     this.props.onSubmit();
@@ -41,13 +43,13 @@ export default class LoginForm extends React.Component {
         <div>
           <label>
             Username
-            <input value={this.state.username} id="test-username" type="text" onChange={this.username}/>
+            <input  id="test-username" type="text" value={this.state.username} onChange={this.username}/>
           </label>
         </div>
         <div>
           <label>
             Password
-            <input value={this.state.password} id="test-password" type="password" onChange={this.password}/>
+            <input  id="test-password" type="password" value={this.state.password} onChange={this.password}/>
           </label>
         </div>
         <div>

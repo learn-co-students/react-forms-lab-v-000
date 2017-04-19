@@ -10,7 +10,7 @@ export default class TwitterMessage extends React.Component {
       tweet: ''
     };
 
-    this.twitter = this.twitter.bind(this);
+    this.twitter = this.twitter.bind(this)
   }
 
   twitter(e){
@@ -24,7 +24,7 @@ export default class TwitterMessage extends React.Component {
       <div>
         <strong>Your message:</strong>
         <input type="text" value={this.state.tweet} onChange={this.twitter}/>
-         <p>{this.props.maxChars - this.state.tweet.length}</p>
+        <p>{this.props.maxChars - this.state.tweet.length}</p>
       </div>
     );
   }
