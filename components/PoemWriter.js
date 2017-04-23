@@ -1,11 +1,11 @@
 import React from 'react';
 
 function countWords(line) {
-  return line.split(' ').filter(l => l).length;
+  return line.split(' ').length;
 }
 
 function isValidPoem(poem) {
-  const poemLines = poem.split('\n').filter(l => l);
+  const poemLines = poem.split('\n');
   const isRightAmountOfLines = poemLines.length === 3;
   const hasRightAmountOfWords = countWords(poemLines[0]) === 5 && countWords(poemLines[1]) === 3 && countWords(poemLines[2]) === 5
   return isRightAmountOfLines && hasRightAmountOfWords;
