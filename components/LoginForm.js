@@ -20,7 +20,7 @@ export default class LoginForm extends React.Component {
     })
   }
 
-  handlePasswordChange() {
+  handlePasswordChange(event) {
     this.setState({
       testPassword: event.target.value
     })
