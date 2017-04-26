@@ -1,5 +1,8 @@
 import React from 'react';
 
+function countWords(line) {
+  return line.split(' ').filter(l => l).length;
+}
 export default class PoemWriter extends React.Component {
   constructor() {
     super();
