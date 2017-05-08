@@ -13,6 +13,7 @@ export default class LoginForm extends React.Component {
 
   handleSubmit(event){
     event.preventDefault();
+    console.log(event)
     if(this.state.username === "" || this.state.password === ""){
       return
     }else{
