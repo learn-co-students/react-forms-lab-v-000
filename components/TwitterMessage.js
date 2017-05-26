@@ -1,34 +1,42 @@
-import React from 'react'
+import React from 'react';
 
-class TwitterMessage extends React.Component {
+function underTen(sentence){
+ return sentence.target.value.length > 10 ? true : false
+}
 
+class TwitterMessage extends React.Component{
   constructor(){
     super();
 
     this.state = {
-      message: ""
+      inputlength: 0,
+      warning: false
     }
+
+    this.updateCount = this.updateCount.bind(this)
   }
 
-  setMessage(event){
-    this.setState(
-      {message: event.target.value}
-    )
+  updateCount(event){
+    console.log(underTen(event))
+   this.setState({
+     inputlength: event.target.value.length,
+     warning: underTen(event),
+   })
   }
 
   render(){
     return(
       <div>
-        <input type="text" value={this.state.message} onChange={this.setMessage.bind(this)}/>
-        <h3>Characters Left: {this.props.maxChars - this.state.message.length}</h3>
+        <input onChange={this.updateCount} />
+        {this.state.warning ? <h3 style={{color: 'red'}}>Characters Left: {this.props.characters - this.state.inputlength}</h3> : <h3>Characters Left: {this.props.characters - this.state.inputlength}</h3>}
       </div>
     )
   }
-
-};
+}
 
 TwitterMessage.defaultProps = {
-  maxChars: 140,
-};
+  characters: 20
+}
 
-module.exports = TwitterMessage
+
+module.exports = TwitterMessage;
