@@ -4,22 +4,48 @@ export default class LoginForm extends React.Component {
   constructor() {
     super();
 
-    this.state = {};
+    this.state = {
+      username: '',
+      password: ''
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.formSubmit = this.formSubmit.bind(this);
+  }
+
+  handleChange(field, event) {
+    this.setState({
+      [field]: event.target.value
+    });
+  }
+
+  formSubmit(event) {
+    event.preventDefault();
+    const { username, password } = this.state;
+
+    if (!username || !password) {
+      return;
+    }
+
+    this.props.onSubmit({
+      username,
+      password
+    });
   }
 
   render() {
     return (
-      <form>
+      <form onSubmit={this.formSubmit}>
         <div>
           <label>
             Username
-            <input id="test-username" type="text" />
+            <input id="test-username" type="text" value={this.state.username} onChange={this.handleChange.bind(this, 'username')} />
           </label>
         </div>
         <div>
           <label>
             Password
-            <input id="test-password" type="password" />
+            <input id="test-password" type="password" value={this.state.password} onChange={this.handleChange.bind(this, 'password')} />
           </label>
         </div>
         <div>
@@ -28,4 +54,8 @@ export default class LoginForm extends React.Component {
       </form>
     );
   }
+}
+
+LoginForm.propTypes = {
+  onSubmit: React.PropTypes.func
 }
