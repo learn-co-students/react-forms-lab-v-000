@@ -12,18 +12,17 @@ class PoemWriter extends React.Component {
 
   handleChange = (event) => {
     var poem =  event.target.value
-    var goodPoem = false
+    var goodPoem = 0
     var lines = poem.split("\n").map(function (line) {
       return line.trim().split(' ').length
     })
-    if (lines === [5, 3, 5]) {
-      goodPoem = true
-      console.log(goodPoem);
+    if (lines[0] === 5 && lines[1] === 3 && lines[2] === 5) {
+      goodPoem = 1
     }
-    console.log(lines);
     this.setState({
       value: poem,
       valid: goodPoem
+    }, function() {
     })
   }
 
