@@ -5,9 +5,12 @@ function countWords(line) {
 }
 
 function isValidPoem(poem) {
+  let rightAmountOfWords
   const poemLines = poem.split('\n').filter(l => l)
   const rightAmountOfLines = poemLines.length === 3
-  const rightAmountOfWords = countWords(poemLines[0]) === 5 && countWords(poemLines[1]) === 3 && countWords(poemLines[2]) === 5
+  if (rightAmountOfLines) {
+    rightAmountOfWords = countWords(poemLines[0]) === 5 && countWords(poemLines[1]) === 3 && countWords(poemLines[2]) === 5
+  }
   return rightAmountOfLines && rightAmountOfWords
 }
 
