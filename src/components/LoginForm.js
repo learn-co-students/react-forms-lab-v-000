@@ -1,33 +1,52 @@
-import React from 'react';
+import React from 'react'
 
 class LoginForm extends React.Component {
   constructor() {
-    super();
+    super()
 
-    this.state = {};
+    this.state = {username: '', password: '',}
+
+    this.change = this.change.bind(this)
+    this.submit = this.submit.bind(this)
+  }
+
+  change(field, event) {
+    this.setState({
+      [field]: event.target.value,
+    })
+  }
+
+  submit(event) {
+    event.preventDefault()
+    const {username, password} = this.state;
+
+    if (!username || !password) {
+      return
+    }
+
+    this.props.onSubmit({
+      username,
+      password
+    })
   }
 
   render() {
     return (
-      <form>
+      <form onSubmit={this.submit}>
         <div>
-          <label>
-            Username
-            <input id="test-username" type="text" />
-          </label>
+            <input id="test-username" type="text" value={this.state.username} onChange={this.change.bind(this, 'username')} />
         </div>
+
         <div>
-          <label>
-            Password
-            <input id="test-password" type="password" />
-          </label>
-        </div>
-        <div>
-          <button type="submit">Log in</button>
+            <input id="test-password" type="password" value={this.state.password} onChange={this.change.bind(this, 'password')} />
         </div>
       </form>
     );
   }
 }
 
-export default LoginForm;
+LoginForm.propTypes = {
+  onSubmit: React.PropTypes.func,
+}
+
+export default LoginForm
