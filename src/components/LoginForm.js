@@ -9,7 +9,9 @@ class LoginForm extends React.Component {
       password: ""
     };
 
-    this.submitForm = this.submitForm.bind(this)
+    this.handleUsernameChange = this.handleUsernameChange.bind(this);
+    this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.submitForm = this.submitForm.bind(this);
   }
 
   handleUsernameChange = (e) => {
@@ -26,7 +28,9 @@ class LoginForm extends React.Component {
 
   submitForm = (e) => {
     e.preventDefault();
-    if (this.state.username !== "" && this.state.password !== ""){
+    var username = this.state.username
+    var password = this.state.password
+    if (username.length < 0 && password.length < 0){
       this.props.onSubmit(this.state)
     } else {
       console.log("Fill in both fields")
