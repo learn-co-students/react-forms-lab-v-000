@@ -12,10 +12,10 @@ class PoemWriter extends React.Component {
 
     this.changePoem = this.changePoem.bind(this)
     this.evaluatePoem = this.evaluatePoem.bind(this)
+    this.displayError = this.displayError.bind(this)
   }
 
   changePoem = (e) => {
-    debugger
     const content = e.target.value
     this.setState({
       poemContent: content
@@ -25,32 +25,44 @@ class PoemWriter extends React.Component {
 
 
   evaluatePoem = (content) => {
-    debugger;
     var lines = content.split("\n")
     if (lines.length === 3) {
         if (lines[0].trim().split(" ").length === 5 && lines[1].trim().split(" ").length === 3 && lines[2].trim().split(" ").length === 5) {
-            this.setState({errorMessage: null})
+            this.setState({poemValid: true})
         } else {
-          this.setState({errorMessage: "This poem is not written in the right structure!"})
+          this.setState({poemValid: false,
+          errorMessage: "This poem is not written in the right structure!"})
         }
     } else {
-      this.setState({errorMessage: "This poem is not written in the right structure!"})
+      this.setState({poemValid: false,
+      errorMessage: "This poem is not written in the right structure!"})
     }
     };
 
+  displayError = () => {
+    if (!this.state.poemValid){
+      return( 
+              <div 
+          id="poem-validation-error" 
+          style={{color: 'red'}}
+        >
+          {this.state.errorMessage}
+        </div>)
+    }else {
+      return ""
+    } 
+  }
+
+
   render() {
+
     return (
       <div>
         <textarea value={this.state.poemContent} onChange={this.changePoem}
           rows="3" 
           cols="60" 
         />
-        <div 
-          id="poem-validation-error" 
-          style={{color: 'red'}}
-        >
-          {this.state.errorMessage}
-        </div>
+          {this.displayError()}
       </div>
     );
   }
