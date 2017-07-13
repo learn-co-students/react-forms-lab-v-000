@@ -15,12 +15,10 @@ class PoemWriter extends React.Component {
   }
 
   updatePoemState = (e) => {
-    if (e.target.value){
-      this.setState({
-        poem: e.target.value,
-        valid: this.poemValid(e.target.value)
-      })
-    }
+    this.setState({
+      poem: e.target.value,
+      valid: this.poemValid(e.target.value)
+    })
   }
 
   poemValid = (poem) => {
