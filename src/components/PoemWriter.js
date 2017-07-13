@@ -6,7 +6,7 @@ class PoemWriter extends React.Component {
     super();
 
     this.state = {
-      poem: '',
+      content: '',
       valid: false
     };
 
@@ -16,7 +16,7 @@ class PoemWriter extends React.Component {
 
   updatePoemState = (e) => {
     this.setState({
-      poem: e.target.value,
+      content: e.target.value,
       valid: this.poemValid(e.target.value)
     })
   }
