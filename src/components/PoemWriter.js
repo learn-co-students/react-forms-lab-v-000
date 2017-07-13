@@ -40,8 +40,8 @@ class PoemWriter extends React.Component {
 
   render() {
     return (
-      <div onChange={this.updatePoemState} value={this.state.content}>
-        <textarea 
+      <div >
+        <textarea onChange={this.updatePoemState} value={this.state.content}
           rows="3" 
           cols="60" 
         />
