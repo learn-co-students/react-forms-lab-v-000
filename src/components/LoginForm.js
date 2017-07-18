@@ -23,13 +23,17 @@ class LoginForm extends React.Component {
   }
 
   handleForm(event){
-    event.preventDefault();
-    if (this.state.username.length > 0 && this.state.password.length > 0){
-      // dumb input requirement but it is js I guess
-      this.props.onSubmit({username: this.state.username,password: this.state.password});
-    } else {
-      console.log("invalid input")
+    const { username, password } = this.state;
+
+    if (!username || !password) {
+      event.preventDefault();
+      return;
     }
+
+    this.props.onSubmit({
+      username,
+      password
+    });
   }
 
   render() {
