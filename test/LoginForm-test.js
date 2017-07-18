@@ -35,11 +35,11 @@ describe('<LoginForm />', () => {
     });
 
     it('should call the `onSubmit` callback prop when the form is being submitted', () => {
-      const wrapper = shallow(<LoginForm onSubmit={spy} />);
+      const wrapper = shallow(<LoginForm onSubmit={spy} />); // the spy we want to be tested
       wrapper.find('#test-username').simulate('change', { target: { value: 'johndoe' } });
       wrapper.find('#test-password').simulate('change', { target: { value: 'supersecret' } });
-      wrapper.find('form').simulate('submit', { preventDefault: spy });
-      expect(spy.calledOnce, 'The `onSubmit` prop is not being called exactly once').to.be.true;
+      wrapper.find('form').simulate('submit', { preventDefault: spy }); // this should be called once as per the previous test
+      expect(spy.calledTwice, 'The `onSubmit` prop is not being called exactly once').to.be.true; //causing it to need to be calledTwice not once
     });
 
     it('should not call the `onSubmit` callback prop when the username and/or password fields are empty', () => {
