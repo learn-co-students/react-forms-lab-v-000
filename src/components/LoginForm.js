@@ -49,7 +49,7 @@ class LoginForm extends React.Component {
           </label>
         </div>
         <div>
-          <input type="submit" onClick={this.handleForm.bind(this)}>Log in</input>
+          <input type="submit" onSubmit={this.handleForm.bind(this)}>Log in</input>
         </div>
       </form>
     );
