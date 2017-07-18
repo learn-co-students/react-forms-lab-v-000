@@ -25,17 +25,14 @@ class LoginForm extends React.Component {
   handleForm(event){
     event.preventDefault();
     if (this.state.username.length > 0 && this.state.password.length > 0){
-      const val = {
-        username: this.state.username,
-        password: this.state.password
-      }
-      this.props.onSubmit(val);
+      // dumb input requirement but it is js I guess
+      this.props.onSubmit({username: this.state.username,password: this.state.password});
     }
   }
 
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleForm.bind(this)}>
         <div>
           <label>
             Username
@@ -49,7 +46,7 @@ class LoginForm extends React.Component {
           </label>
         </div>
         <div>
-          <input type="submit" onSubmit={this.handleForm.bind(this)}>Log in</input>
+          <input type="submit" value="Log in" />
         </div>
       </form>
     );
