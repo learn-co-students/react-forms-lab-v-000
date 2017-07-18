@@ -22,3 +22,5 @@ ReactDOM.render(
   </div>,
   document.getElementById('root')
 );
+
+require('./test/index-test.js'); // Leave this in!
