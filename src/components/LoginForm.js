@@ -27,6 +27,8 @@ class LoginForm extends React.Component {
     if (this.state.username.length > 0 && this.state.password.length > 0){
       // dumb input requirement but it is js I guess
       this.props.onSubmit({username: this.state.username,password: this.state.password});
+    } else {
+      console.log("invalid input")
     }
   }
 
