@@ -10,22 +10,26 @@ class LoginForm extends React.Component {
     };
   }
 
+  handleUserName(event){
+    this.setState({
+      username: event.target.value
+    });
+  }
+
   handleInputChange(event){
-    if(event.target.id === "test-username"){
-      this.setState({
-        username: event.target.value
-      });
-    } else if (event.target.id === "test-password") {
-      this.setState({
-        password: event.target.value
-      })
-    }
+    this.setState({
+      password: event.target.value
+    });
   }
 
   handleForm(event){
     event.preventDefault();
     if (this.state.username.length > 0 && this.state.password.length > 0){
-      this.props.onSubmit(this.state.username, this.state.password);
+      const val = {
+        username: this.state.username,
+        password: this.state.password
+      }
+      this.props.onSubmit(val);
     }
   }
 
@@ -35,7 +39,7 @@ class LoginForm extends React.Component {
         <div>
           <label>
             Username
-            <input id="test-username" type="text" value={this.state.username} onChange={this.handleInputChange.bind(this)}/>
+            <input id="test-username" type="text" value={this.state.username} name="username" onChange={this.handleUserName.bind(this)}/>
           </label>
         </div>
         <div>
@@ -45,7 +49,7 @@ class LoginForm extends React.Component {
           </label>
         </div>
         <div>
-          <button type="submit" onClick={this.handleForm.bind(this)}>Log in</button>
+          <input type="submit" onClick={this.handleForm.bind(this)}>Log in</input>
         </div>
       </form>
     );
