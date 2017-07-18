@@ -33,7 +33,6 @@ class PoemWriter extends React.Component {
   }
 
   render() {
-    console.log(this.state.valid);
     return (
       <div>
         <textarea rows="3" cols="60" value={this.state.input} onChange={this.handleInput.bind(this)} />
