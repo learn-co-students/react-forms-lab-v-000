@@ -33,9 +33,10 @@ class PoemWriter extends React.Component {
   }
 
   render() {
+    console.log(this.state.valid);
     return (
       <div>
-        <textarea rows="3" cols="60" value={this.state.input} onInput={this.handleInput.bind(this)} />
+        <textarea rows="3" cols="60" value={this.state.input} onChange={this.handleInput.bind(this)} />
         {!this.state.valid &&
         <div id="poem-validation-error" style={{color: 'red'}}>
           This poem is not written in the right structure!
