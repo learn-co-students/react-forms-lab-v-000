@@ -18,12 +18,11 @@ class PoemWriter extends React.Component {
   }
 
   poemValidation = () => {
-    if (this.state.poem.length === 3) {
-      if (this.state.poem[0].trim().split(' ').length === 5 &&
-          this.state.poem[1].trim().split(' ').length === 3 &&
-          this.state.poem[2].trim().split(' ').length === 5) {
-            return true;
-          }
+    if (this.state.poem.length === 3 &&
+        this.state.poem[0].trim().split(' ').length === 5 &&
+        this.state.poem[1].trim().split(' ').length === 3 &&
+        this.state.poem[2].trim().split(' ').length === 5) {
+      return true;
     }
     return false;
   }
