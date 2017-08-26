@@ -32,7 +32,6 @@ class PoemWriter extends React.Component {
 
   render() {
     const valid = this.validPoem();
-    console.log(valid)
     return (
       <div>
         <textarea
@@ -46,16 +45,6 @@ class PoemWriter extends React.Component {
         </div> }
       </div>
     );
-  }
-}
-
-class PoemError extends React.Component {
-  render() {
-    return (
-      <div id="poem-validation-error" className="poem-error" style={{color: 'red'}}>
-        This poem is not written in the right structure!
-      </div>
-    )
   }
 }
 
