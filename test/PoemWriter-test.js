@@ -49,7 +49,6 @@ describe('<PoemWriter />', () => {
     it('should not show an error when the poem is valid', () => {
       const wrapper = shallow(<PoemWriter />);
       wrapper.find('textarea').simulate('change', { target: { value: VALID_POEM } });
-      console.log(wrapper.find('#poem-validation-error').length)
       expect(wrapper.find('#poem-validation-error').length).to.equal(0, 'The poem validation error is being shown');
     });
 
