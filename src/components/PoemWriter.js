@@ -29,7 +29,8 @@ class PoemWriter extends React.Component {
           style={{color: 'red'}}
         >
           {(()=> {
-            if (this.state.text !== '') {
+            const entry = this.state.text;
+            if (entry.split(/\r\n|\r|\n/).length === 3) {
               null;
             } else {
               return 'This poem is not written in the right structure!';
