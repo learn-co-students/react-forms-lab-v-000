@@ -24,19 +24,27 @@ class PoemWriter extends React.Component {
           rows="3"
           cols="60"
         />
-        <div
-          id="poem-validation-error"
-          style={{color: 'red'}}
-        >
-          {(()=> {
-            const entry = this.state.text;
-            if (entry.split(/\r\n|\r|\n/).length === 3) {
-              null;
-            } else {
-              return 'This poem is not written in the right structure!';
-            }
-          })()}
-        </div>
+        {(()=> {
+          const entry = this.state.text.split(/\r\n|\r|\n/);
+
+          if (
+            entry.length === 3 &&
+            entry[0].trim().split(' ').length === 5 &&
+            entry[1].trim().split(' ').length === 3 &&
+            entry[2].trim().split(' ').length === 5
+          ) {
+            null;
+          } else {
+            return (
+              <div
+                id="poem-validation-error"
+                style={{color: 'red'}}
+              >
+                return 'This poem is not written in the right structure!';
+              </div>
+            );
+          }
+        })()}
       </div>
     );
   }
