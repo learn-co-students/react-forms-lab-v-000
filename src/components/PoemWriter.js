@@ -7,6 +7,7 @@ class PoemWriter extends React.Component {
 
     this.state = {
       content: "",
+      noError: false,
     };
   }
 
@@ -17,22 +18,20 @@ class PoemWriter extends React.Component {
   }
   //
   checkStructure = () => {
-    if (this.isValid(this.state.content)) {
-      document.getElementById("poem-validation-error").hidden = true;
-    } else {
-      document.getElementById("poem-validation-error").hidden = false;
-    }
+    this.setState({
+      noError: this.isValid(this.state.content),
+    })
   }
   //
   isValid = (input) => {
     const inputArray = input.split("\n");
-    const lineCount = input.length;
+    const lineCount = inputArray.length;
     if (lineCount !== 3) return false;
     return this.wordCount(inputArray[0]) === 5 && this.wordCount(inputArray[1]) === 3 && this.wordCount(inputArray[2]) === 5
   }
   //
-  wordCount = function(line) {
-    line.split(/\s+/).filter(x => x).length
+  wordCount = function(singleLine) {
+    return singleLine.split(/\s+/).filter(x => x).length
   }
 // should render non-space array with correct count per line:
 // .split(/\s+/).filter(x => x)
@@ -44,7 +43,7 @@ class PoemWriter extends React.Component {
           rows="3"
           cols="60"
         />
-        <div
+        <div hidden={this.state.noError}
           id="poem-validation-error"
           style={{color: 'red'}}
         >
