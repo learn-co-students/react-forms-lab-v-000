@@ -7,19 +7,19 @@ class PoemWriter extends React.Component {
 
     this.state = {
       content: "",
-      noError: false,
+      peomIsValid: false,
     };
   }
 
   handleChange = (event) => {
     this.setState({
       content: event.target.value,
-    }, this.checkStructure)
+    }, this.checkPoemFormat)
   }
 
-  checkStructure = () => {
+  checkPoemFormat = () => {
     this.setState({
-      noError: this.isValid(this.state.content),
+      peomIsValid: this.isValid(this.state.content),
     })
   }
 
@@ -41,7 +41,7 @@ class PoemWriter extends React.Component {
           rows="3"
           cols="60"
         />
-        {this.state.noError ? null : <div id="poem-validation-error" style={{color: 'red'}} >This poem is not written in the right structure! </div> }
+        {this.state.peomIsValid ? null : <div id="poem-validation-error" style={{color: 'red'}} >This poem is not written in the right structure! </div> }
       </div>
     );
   }
