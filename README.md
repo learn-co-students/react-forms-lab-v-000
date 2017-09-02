@@ -11,7 +11,6 @@ General notes for this lab:
 - When instructed to save a value in the state, it doesn't matter what key you use, as long as it's in there!
 
 ## `TwitterMessage`
-![Tweet Tweet Tweet](https://media.giphy.com/media/f4eXhcyemnGwM/giphy.gif)
 
 1. Open the `components/TwitterMessage.js` file.
 2. This component takes one prop, `maxChars`, which is a number representing the maximum amount of characters a message can have.
@@ -22,14 +21,14 @@ General notes for this lab:
 1. Open the `components/LoginForm.js` file.
 2. This component takes one prop, `onSubmit`, which is a function that gets called when the form is being submitted.
 3. You'll find two inputs in this component: `<input type="text">` and `<input type="password">`. Make this a controlled component by adding the necessary props to these inputs. Their values should be saved in the component's state.
-4. An example of an input would look like: 
+4. An example of an input would look like:
     ```js
-    <input 
-      id="test-username" 
+    <input
+      id="test-username"
       type="text"
       name="username"
-      value={this.state.username} 
-      onChange={this.handleInputChange} 
+      value={this.state.username}
+      onChange={this.handleInputChange}
     />
     ```
 5. Remember that you can retrieve the input `name` and `value` of an `event.target` from the JS event.
@@ -37,7 +36,6 @@ General notes for this lab:
 7. The `onSubmit` callback prop should only be called if _both_ fields are filled in (with any value).
 
 ## `PoemWriter`
-![Bo Burnham](https://media.giphy.com/media/dg2p49sffdtqo/giphy.gif)
 
 1. Open the `components/PoemWriter.js` file.
 2. You'll find one `<textarea>` in this component. Make this a controlled component by adding the necessary props to this element. Its value should be saved in the component's state.
