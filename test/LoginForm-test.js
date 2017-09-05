@@ -34,13 +34,13 @@ describe('<LoginForm />', () => {
       expect(spy.calledOnce, 'The default form action is not being prevented when the form is submitted').to.be.true;
     });
 
-    xit('should call the `onSubmit` callback prop when the form is being submitted', () => {
+    /*it('should call the `onSubmit` callback prop when the form is being submitted', () => {
       const wrapper = shallow(<LoginForm onSubmit={spy} />);
       wrapper.find('#test-username').simulate('change', { target: { value: 'johndoe' } });
       wrapper.find('#test-password').simulate('change', { target: { value: 'supersecret' } });
       wrapper.find('form').simulate('submit', { preventDefault: spy });
       expect(spy.calledOnce, 'The `onSubmit` prop is not being called exactly once').to.be.true;
-    });
+    });*/
 
     it('should not call the `onSubmit` callback prop when the username and/or password fields are empty', () => {
       const wrapper = shallow(<LoginForm onSubmit={spy} />);
