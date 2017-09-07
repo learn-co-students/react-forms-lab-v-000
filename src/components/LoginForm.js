@@ -10,9 +10,10 @@ export default class LoginForm extends React.Component {
     };
   }
 
-  handleInputChange = (field, event) => {
+  handleInputChange = event => {
+    const { name, value } = event.target;
     this.setState({
-      [field]: event.target.value,
+      [name]: value,
     });
   }
 
@@ -23,8 +24,6 @@ export default class LoginForm extends React.Component {
     if (!username || !password) {
       return;
     }
-
-    debugger;
 
     this.props.onSubmit({
       username,
@@ -43,13 +42,13 @@ export default class LoginForm extends React.Component {
         <div>
           <label>
             Username
-            <input id="test-username" type="text" value={this.state.username} onChange={this.handleInputChange.bind(this, 'username')} />
+            <input id="test-username" type="text" name="username" value={this.state.username} onChange={this.handleInputChange} />
           </label>
         </div>
         <div>
           <label>
             Password
-            <input id="test-password" type="password" value={this.state.password} onChange={this.handleInputChange.bind(this, 'password')} />
+            <input id="test-password" type="password" name="password" value={this.state.password} onChange={this.handleInputChange} />
           </label>
         </div>
         <div>
