@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class LoginForm extends React.Component {
   constructor(props) {
@@ -59,6 +60,7 @@ export default class LoginForm extends React.Component {
   }
 }
 
+// eslint-disable-next-line
 LoginForm.propTypes = {
-  onSubmit: React.PropTypes.func,
+  onSubmit: PropTypes.func,
 };
