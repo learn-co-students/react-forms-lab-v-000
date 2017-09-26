@@ -15,15 +15,12 @@ class TwitterMessage extends React.Component {
   });
 }
 
-  maxChars = () => {
-    maxChars: this.props.maxChars - value
-  }
-
   render() {
     return (
       <div>
         <strong>Your message:</strong>
-        <input type="text" maxChars={this.props.maxChars} value={this.state.value} onChange={this.handleChange}/>
+        <input type="text" value={this.state.value} onChange={this.handleChange}/>
+        <p>{this.props.maxChars - this.state.value.length}</p>
       </div>
     );
   }
