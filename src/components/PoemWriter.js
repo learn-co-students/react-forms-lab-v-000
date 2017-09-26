@@ -6,35 +6,29 @@ class PoemWriter extends React.Component {
 
     this.state = {
       value:'',
-      error:''
+      error: true
     };
   }
 
-  handleChange = event => {
+  handleChange = (event) => {
   this.setState({
     value: event.target.value,
   });
-    if (this.state.value === '') {
+   if (event.target.value === '') {
       this.setState({
         error: true
       })
-    // } else if () {
-      // this.state.error = true
-    } else if (this.state.value.match(/\S+/g).length) {
+    } else 
+	if (event.target.value.match(/\S+/g).length === 13) {
       this.setState({
         error: false
       })
-    }
-
-    // var linecount = value.match(^\r\n).length
-    // var wordcount = value.match(/\S+/g).length;
-    // poem-validation-error
+    } else { 
+	 this.setState({
+       error: true
+    })
+	}
   }
-
-}
-
-
-
 
   render() {
     return (
