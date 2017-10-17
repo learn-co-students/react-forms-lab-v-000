@@ -39,9 +39,6 @@ class PoemWriter extends React.Component {
     }
   }
 
-  handleErrors = (poem) => {
-
-  }
 
   render() {
     return (
