@@ -10,11 +10,10 @@ class PoemWriter extends React.Component {
   }
 
   handleInputChange = event => {
-    const poemText = parsePoem(event.target.value)
-    console.log(poemText)
+    const validPoem = parsePoem(event.target.value)
     this.setState({
       value: event.target.value,
-      withErrors: poemText
+      withErrors: validPoem
     })
   }
 
@@ -40,19 +39,14 @@ class PoemWriter extends React.Component {
   }
 }
 
-function parsePoem(poemText) {
-  var rows = poemText.split("\n");
+function parsePoem(validPoem) {
+  var rows = validPoem.split("\n");
   if (rows.length === 3 && rows[2] !== "") {
-    console.log(rows)
     if (
       rows[0].match(/\S+/g).length === 5 &&
       rows[1].match(/\S+/g).length === 3 &&
       rows[2].match(/\S+/g).length === 5
     ) {
-      console.log(rows[0].match(/\S+/g))
-      console.log(rows[1].match(/\S+/g))
-      console.log(rows[2].match(/\S+/g))
-
       return true
     } else {return false}
   } else {return false}
