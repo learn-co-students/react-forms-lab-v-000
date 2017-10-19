@@ -25,11 +25,9 @@ class PoemWriter extends React.Component {
       });
       //console.log(lines[0].split(' ').length);
       if (lines[0].split(' ').length === 5 && lines[1].split(' ').length === 3 && lines[2].split(' ').length === 5) {
-        //err.style.visibility= 'hidden';
-        err.innerHTML = ''
+        err.style.display = 'none';
       } else {     
-      //   err.style.visibility = 'visible';
-      err.innerHTML = 'This poem is not written in the right structure!'
+        err.style.display = 'block';
       }
     } 
   }
