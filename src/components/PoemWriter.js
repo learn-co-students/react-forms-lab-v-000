@@ -5,12 +5,12 @@ class PoemWriter extends React.Component {
     super(props);
 
     this.state = {
-      poem: ''
+      poem: '',
+      legitPoem: false
     };
   }
 
   checkPoem = (poem) => {
-    const err = document.querySelector('#poem-validation-error');
     let splitPoem, lines;
 
     String.prototype.trim = function() {
@@ -23,31 +23,36 @@ class PoemWriter extends React.Component {
       lines = splitPoem.map(function(ln) {
         return ln.trim();
       });
-      //console.log(lines[0].split(' ').length);
       if (lines[0].split(' ').length === 5 && lines[1].split(' ').length === 3 && lines[2].split(' ').length === 5) {
-        err.style.display = 'none';
+        return true;
       } else {     
-        err.style.display = 'block';
+        return false;
       }
     } 
   }
 
   handleChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value
-    }, this.checkPoem(this.state.poem));
+      poem: event.target.value, 
+      legitPoem: this.checkPoem(this.state.poem)
+    });
   }
 
   render() {
     return (
       <div>
         <textarea rows="3" cols="60" name="poem" value={this.state.poem} onChange={this.handleChange} />
-        <div id="poem-validation-error" style={{color: 'red'}} >
+        {!this.state.legitPoem && <div id="poem-validation-error" style={{color: 'red'}} >
           This poem is not written in the right structure!
-        </div>
+        </div>}
       </div>
     );
   }
 }
 
 export default PoemWriter;
+
+
+
+
+
