@@ -15,13 +15,15 @@ class PoemWriter extends React.Component {
       inputText: event.target.value
     })
     // splits text into an array, each line
-    var lines = this.state.inputText.split(/\r|\r\n|\n/);
-    var countAll = lines.length;
+    // var lines = this.state.inputText.split(/\r|\r\n|\n/);
+    var lines = this.state.inputText.split("\n").filter( l => l.match(/[a-zA-Z]+/g));
 
+    var countAll = lines.length;
     if (countAll === 3) {
-      var countFirst = lines[0].split(" ")
-      var countSecond = lines[1].split(" ")
-      var countThird = lines[2].split(" ")
+      // split each line by word
+      var countFirst = lines[0].match(/[a-zA-Z]+/g)
+      var countSecond = lines[1].match(/[a-zA-Z]+/g)
+      var countThird = lines[2].match(/[a-zA-Z]+/g)
 
       if (countFirst.length === 5 && countSecond.length === 3 && countThird.length === 5) {
         this.setState({

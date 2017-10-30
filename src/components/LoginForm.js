@@ -25,8 +25,8 @@ class LoginForm extends React.Component {
 
   addPropValue = event => {
     event.preventDefault()
-    if (document.getElementById('test-username').value !== '' && document.getElementById('test-password').value !== '') {
-      console.log(document.getElementById('test-username').value, document.getElementById('test-password').value)
+    if (this.state.username !== '' && this.state.password !== '') {
+      console.log(this.state.username, this.state.password)
     }
   }
   render() {
