@@ -1,33 +1,56 @@
-import React from 'react';
+import React from 'react'
 
-class LoginForm extends React.Component {
-  constructor() {
+
+
+export default class LoginForm extends React.Component{
+  constructor(){
     super();
 
-    this.state = {};
+    this.state = {
+      username: '',
+      password: '', 
+    }
   }
 
-  render() {
-    return (
-      <form>
-        <div>
-          <label>
-            Username
-            <input id="test-username" type="text" />
-          </label>
-        </div>
-        <div>
-          <label>
-            Password
-            <input id="test-password" type="password" />
-          </label>
-        </div>
-        <div>
-          <button type="submit">Log in</button>
-        </div>
+  handleInputChange = event => {
+    console.log(event.target)
+      const { name, value } = event.target;
+
+      this.setState({
+        [name]: value
+      });
+    }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+
+    const {username, password} = this.state
+
+    if (!username || !password){
+      return
+    }
+
+    this.props.onSubmit({username, password})
+  }
+
+  render(){
+    return(
+      <form onSubmit = {this.handleSubmit}>
+      <label>Username</label> <br/>
+        <input id="test-username"
+        type="text"
+        name="username"
+        value={this.state.username}
+        onChange={this.handleInputChange} />
+      <br/>
+      <label>Password</label> <br/>
+        <input id="test-password"
+        type="password"
+        name="password"
+        value={this.state.password} onChange={this.handleInputChange} />
+        <br/><br/>
+        <input type="submit" value="submit"/>
       </form>
-    );
+    )
   }
 }
-
-export default LoginForm;
