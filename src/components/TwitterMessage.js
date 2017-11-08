@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react'
 
-export default class TwitterMessage extends React.Component {
+export default class TwitterMessage extends Component {
   constructor() {
     super();
-
     this.state = {
       message: '',
       chars: 0
