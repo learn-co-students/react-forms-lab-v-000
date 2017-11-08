@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react'
 
 function countWords(line) {
   return line.split(' ').filter(l => l).length;
@@ -11,10 +11,9 @@ function isValidPoem(poem) {
   return isRightAmountOfLines && hasRightAmountOfWords;
 }
 
-export default class PoemWriter extends React.Component {
+export default class PoemWriter extends Component {
   constructor() {
     super();
-
     this.state = {
       content: '',
       isValid: false,
