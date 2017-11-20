@@ -30,17 +30,19 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <div>
           <label>
             Username
-            <input id="test-username" type="text" />
+            <input id="test-username" type="text"
+            name='username' value='{this.state.username}' onChange={this.handleInputChange}/>
           </label>
         </div>
         <div>
           <label>
             Password
-            <input id="test-password" type="password" />
+            <input id="test-password" type="password"
+            name='password' value='{this.state.password}' onChange={this.handleInputChange}/>
           </label>
         </div>
         <div>
@@ -49,6 +51,10 @@ class LoginForm extends React.Component {
       </form>
     );
   }
+}
+
+LoginForm.propTypes = {
+  onSubmit: PropTypes.func
 }
 
 export default LoginForm;
