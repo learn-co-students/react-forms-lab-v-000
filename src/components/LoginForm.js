@@ -1,10 +1,31 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
 class LoginForm extends React.Component {
   constructor() {
     super();
 
-    this.state = {};
+    this.state = {
+      username: '',
+      password: '',
+    };
+  }
+
+  handleInputChange = event => {
+    const {name, value} = event.target
+
+    this.setState({
+      [name]: value
+    })
+  }
+
+  handleSubmit = event => {
+    event.preventDefault()
+    const {username, password} = this.state
+    if (!username || !password) {
+      return
+    }
+    this.props.onSubmit({username, password})
   }
 
   render() {
