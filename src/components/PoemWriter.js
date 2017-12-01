@@ -1,10 +1,8 @@
 import React from 'react';
 
-function wordCount(line) {
-  return line.split(' ').filter(word => word).length;
-}
+const wordCount = line => line.split(' ').filter(word => word).length;
 
-function isValidPoem(content) {
+const isValidPoem = content => {
   if (content) {
     const poemLines = content.split('\n').filter(line => line);
     const correctNumberOfLines = poemLines.length === 3;

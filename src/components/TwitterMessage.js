@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class TwitterMessage extends React.Component {
   constructor() {
@@ -29,5 +30,13 @@ class TwitterMessage extends React.Component {
     );
   }
 }
+
+TwitterMessage.propTypes = {
+  maxChars: PropTypes.number
+};
+
+TwitterMessage.defaultProps = {
+  maxChars: 140
+};
 
 export default TwitterMessage;
