@@ -6,7 +6,6 @@ class TwitterMessage extends React.Component {
 
     this.state = {
       value: "",
-      // maxChars: this.props.maxChars
     };
   }
 
@@ -16,7 +15,6 @@ class TwitterMessage extends React.Component {
     if(this.props.maxChars - this.state.value.length > 0) {
       this.setState({
         value: e.target.value,
-        // maxChars: this.props.maxChars - e.target.value.length
       })
 
     }
