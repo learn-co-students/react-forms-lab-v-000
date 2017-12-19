@@ -1,26 +1,53 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-class LoginForm extends React.Component {
-  constructor() {
-    super();
+class LoginForm extends Component {
+  state = {
+    username: '',
+    password: '',
+  };
 
-    this.state = {};
-  }
+  handleInputChange = e => {
+    const { name, value } = e.target;
+
+    this.setState({
+      [name]: value,
+    });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    const { onSubmit } = this.props;
+    const { username, password } = this.state;
+
+    if (!username || !password) return;
+
+    onSubmit({ username, password });
+  };
 
   render() {
+    const { username, password } = this.state;
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <div>
-          <label>
-            Username
-            <input id="test-username" type="text" />
-          </label>
+          <label htmlFor="test-username">Username</label>
+          <input
+            name="username"
+            onChange={this.handleInputChange}
+            value={username}
+            id="test-username"
+            type="text"
+          />
         </div>
         <div>
-          <label>
-            Password
-            <input id="test-password" type="password" />
-          </label>
+          <label htmlFor="test-password">Password</label>
+          <input
+            name="password"
+            onChange={this.handleInputChange}
+            value={password}
+            id="test-password"
+            type="password"
+          />
         </div>
         <div>
           <button type="submit">Log in</button>
@@ -29,5 +56,9 @@ class LoginForm extends React.Component {
     );
   }
 }
+
+LoginForm.propTypes = {
+  onSubmit: PropTypes.func,
+};
 
 export default LoginForm;
