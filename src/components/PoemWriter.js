@@ -14,17 +14,21 @@ class PoemWriter extends React.Component {
     this.setState({
       content: e.target.value
     }, this.validatePoem)
-
-  }
+  };
 
   validatePoem = () => {
     let poem = this.state.content
-    if (poem.length > 5){
+    if (this.poemValidationBool(poem)){
       this.state.errorDisplay = "none";
     } else {
       this.state.errorDisplay = "";
     }
     this.setState(this.state)
+  };
+
+  poemValidationBool = (poem) => {
+    let poemRegex = /(^((\s*)(\S+\s){4})(\S+)$)/igm
+    return poemRegex.test(poem)
   };
 
   render() {
