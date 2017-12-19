@@ -18,7 +18,7 @@ class PoemWriter extends React.Component {
 
   validatePoem = () => {
     let poem = this.state.content
-    if (this.poemValidationBool(poem)){
+    if (this. poemValidationBool(poem)){
       this.state.errorDisplay = "none";
     } else {
       this.state.errorDisplay = "";
@@ -27,7 +27,7 @@ class PoemWriter extends React.Component {
   };
 
   poemValidationBool = (poem) => {
-    let poemRegex = /(^((\s*)(\S+\s){4})(\S+)$)/igm
+    let poemRegex = /(((\s*)(\S+\s){4})(\S+)\n)((\S+\s){2}(\S+)\n)(((\s*)(\S+\s){4})(\S+)\n)/ig
     return poemRegex.test(poem)
   };
 
