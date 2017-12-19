@@ -14,10 +14,7 @@ const thirdIsFive = (poem) => {
 }
 // const wordCount = this.state.content.split(/\n/).join(' ').split(' ').length;
 const isValidPoem = (poem) => {
-  if (linesThree(poem) && firstIsFive(poem) && secondIsThree(poem) && thirdIsFive(poem)) {
-    return true;
-  }
-  return false;
+  return linesThree(poem) && firstIsFive(poem) && secondIsThree(poem) && thirdIsFive(poem)
 }
 
 class PoemWriter extends React.Component {
