@@ -1,13 +1,14 @@
-import React from 'react';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 class LoginForm extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props)
 
     this.state = {
       username: '',
       password: ''
-    };
+    }
   }
 
   updateUsername = (event) => {
@@ -23,7 +24,7 @@ class LoginForm extends React.Component {
   }
 
   formCallback = (event) => {
-    event.preventDefault();
+    event.preventDefault()
     var username = this.state.username
     var password = this.state.password
     if (username && password) {
@@ -50,8 +51,8 @@ class LoginForm extends React.Component {
           <button type="submit">Log in</button>
         </div>
       </form>
-    );
+    )
   }
 }
 
-export default LoginForm;
+export default LoginForm
