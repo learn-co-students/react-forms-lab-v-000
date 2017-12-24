@@ -11,15 +11,21 @@ class LoginForm extends React.Component {
     }
   }
 
-  updateUsername = (event) => {
-    this.setState({
-      username: event.target.value
-    })
-  }
+  // updateUsername = (event) => {
+  //   this.setState({
+  //     username: event.target.value
+  //   })
+  // }
 
-  updatePassword = (event) => {
+  // updatePassword = (event) => {
+  //   this.setState({
+  //     password: event.target.value
+  //   })
+  // }
+
+  updateField = event => {
     this.setState({
-      password: event.target.value
+      [event.target.name]: event.target.value
     })
   }
 
@@ -38,13 +44,13 @@ class LoginForm extends React.Component {
         <div>
           <label>
             Username
-            <input id="test-username" type="text" value={this.state.username} onChange={this.updateUsername}/>
+            <input id="test-username" type="text" name="username" value={this.state.username} onChange={this.updateField}/>
           </label>
         </div>
         <div>
           <label>
             Password
-            <input id="test-password" type="password" value={this.state.password} onChange={this.updatePassword}/>
+            <input id="test-password" type="password" name="password" value={this.state.password} onChange={this.updateField}/>
           </label>
         </div>
         <div>
@@ -54,5 +60,9 @@ class LoginForm extends React.Component {
     )
   }
 }
+
+// LoginForm.PropTypes = {
+//   onSubmit: PropTypes.func
+// }
 
 export default LoginForm
