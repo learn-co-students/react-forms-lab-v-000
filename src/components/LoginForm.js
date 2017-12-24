@@ -23,10 +23,10 @@ class LoginForm extends React.Component {
     })
   }
 
-  formCallback = (event) => {
+  formCallback = event => {
     event.preventDefault()
-    var username = this.state.username
-    var password = this.state.password
+    const username = this.state.username
+    const password = this.state.password
     if (username && password) {
       this.props.onSubmit({username, password})
     }
