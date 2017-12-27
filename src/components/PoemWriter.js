@@ -1,28 +1,63 @@
 import React from 'react';
 
+
+const validPoem = function (content) {
+  let lines = content.split('\n');
+
+  if (lines.length === 3) {
+    let lineOneLength = lines[0].split(' ').filter(l => l).length;
+    let lineTwoLength = lines[1].split(' ').filter(l => l).length;
+    let lineThreeLength = lines[2].split(' ').filter(l => l).length;
+
+
+    if (lineOneLength === 5 && lineTwoLength === 3 && lineThreeLength === 5) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+};
+
 class PoemWriter extends React.Component {
   constructor() {
     super();
 
-    this.state = {};
+    this.state = {
+      textAreaValue: '',
+      validPoem: false
+
+    };
   }
 
-  render() {
-    return (
-      <div>
+    updateTextArea = function (e) {
+
+      this.setState({
+        textAreaValue: e.target.value,
+        validPoem: validPoem(e.target.value),
+      })
+    }.bind(this);
+
+    render()
+    {
+      return (
+        <div>
         <textarea
           rows="3"
           cols="60"
+          onChange={this.updateTextArea}
+          value={this.state.textAreaValue}
         />
-        <div
-          id="poem-validation-error"
-          style={{color: 'red'}}
-        >
-          This poem is not written in the right structure!
+          {!this.state.validPoem &&
+          <div
+            id="poem-validation-error"
+            style={{color: 'red'}}
+          >
+            This poem is not written in the right structure!
+          </div>
+          }
         </div>
-      </div>
-    );
-  }
+      );
+    }
 }
 
 export default PoemWriter;
