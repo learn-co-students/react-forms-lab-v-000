@@ -16,15 +16,6 @@ class LoginForm extends React.Component {
     this.setState({
       [name] : value
     });
-    // if (event.target.name === "username"){
-    //   this.setState({
-    //     username: event.target.value
-    //   });
-    // } else if (event.target.name === "password"){
-    //   this.setState({
-    //     password: event.target.value
-    //   });
-    // }
   }
   handleSubmit = (event) => {
     event.preventDefault();

@@ -34,15 +34,12 @@ class PoemWriter extends React.Component {
       isValid: true
     };
   }
-
-
   handleChange = (event) => {
     this.setState({
       text: event.target.value,
       isValid: isPoemValid(event.target.value)
     });
   }
-
   render() {
     return (
       <div>
