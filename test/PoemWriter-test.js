@@ -1,7 +1,9 @@
 import React from "react";
 import { expect } from "chai";
 import sinon from "sinon";
-import { shallow } from "enzyme";
+import Enzyme, { shallow } from "enzyme";
+import Adapter from 'enzyme-adapter-react-16';
+Enzyme.configure({ adapter: new Adapter() })
 
 import PoemWriter from "../src/components/PoemWriter";
 import { isValueInState } from "./util";
