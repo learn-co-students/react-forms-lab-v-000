@@ -6,6 +6,11 @@ import { shallow } from "enzyme";
 import PoemWriter from "../src/components/PoemWriter";
 import { isValueInState } from "./util";
 
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() });
+
 const INVALID_POEM = `${"word ".repeat(2)}
 ${"word ".repeat(5)}`;
 

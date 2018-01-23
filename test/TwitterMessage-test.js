@@ -4,6 +4,11 @@ import { shallow } from "enzyme";
 
 import TwitterMessage from "../src/components/TwitterMessage";
 
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() });
+
 describe("<TwitterMessage />", () => {
   describe("Saving input value in state", () => {
     it("should update the state when typing", () => {
