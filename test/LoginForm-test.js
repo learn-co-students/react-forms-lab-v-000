@@ -6,6 +6,11 @@ import { shallow } from "enzyme";
 import LoginForm from "../src/components/LoginForm";
 import { isValueInState, noop } from "./util";
 
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() });
+
 describe("<LoginForm />", () => {
   const spy = sinon.spy();
 
