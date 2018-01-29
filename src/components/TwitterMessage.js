@@ -5,13 +5,13 @@ class TwitterMessage extends React.Component {
     super(props);
 
     this.state = {
-      value: `${this.props.maxChars} characters left`,
+      value: this.props.maxChars,
     };
   }
   
   handleChange = event => {
     this.setState({
-      value: event.target.value,
+      value: --this.state.value,
     });
   }
 
