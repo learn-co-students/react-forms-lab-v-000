@@ -19,7 +19,7 @@ ReactDOM.render(
     <h1>
       <pre>LoginForm</pre>
     </h1>
-    <LoginForm onSubmit={login} />
+    <LoginForm onSubmit={login} bensProp="hotdog"/>
 
     <h1>
       <pre>PoemWriter</pre>
