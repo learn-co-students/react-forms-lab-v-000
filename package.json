@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "enzyme": "^2.7.0",
     "jsdom": "^9.9.1",
     "mocha": "^3.2.0",
     "react-scripts": "^1.0.7",
-    "react-test-renderer": "^15.5.4",
+    "react-test-renderer": "^15.6.2",
     "webpack": "^2.2.0",
     "webpack-dev-server": "^1.16.2"
   },
@@ -18,19 +19,17 @@
     "babel-preset-react": "^6.22.0",
     "babel-preset-stage-1": "^6.24.1",
     "chai": "^3.5.0",
-    "enzyme": "^3.1.0",
-    "enzyme-adapter-react-16": "^1.0.1",
     "expect": "^21.2.1",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
+    "mocha-multi": "^1.0.0",
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2",
     "sinon": "^1.17.7"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "mocha -w test/helpers.js test/*.js",
-    "dev:hot":
-      "webpack-dev-server --hot --inline --progress --colors --watch --display-error-details --display-cached --content-base ./",
+    "dev:hot": "webpack-dev-server --hot --inline --progress --colors --watch --display-error-details --display-cached --content-base ./",
     "test:watch": "npm run test -- --watch",
     "eject": "react-scripts eject"
   }
