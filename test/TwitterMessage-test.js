@@ -1,6 +1,9 @@
 import React from "react";
 import { expect } from "chai";
-import { shallow } from "enzyme";
+import { shallow, configure } from "enzyme";
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() });
 
 import TwitterMessage from "../src/components/TwitterMessage";
 
@@ -30,6 +33,7 @@ describe("<TwitterMessage />", () => {
       const wrapper = shallow(<TwitterMessage maxChars={140} />);
       const event = { target: { value: "f" } };
       wrapper.find("input").simulate("change", event);
+
       expect(
         wrapper.contains(139),
         "The character counter does not update when typing"

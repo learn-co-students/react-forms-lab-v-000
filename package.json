@@ -6,7 +6,7 @@
     "jsdom": "^9.9.1",
     "mocha": "^3.2.0",
     "react-scripts": "^1.0.7",
-    "react-test-renderer": "^15.5.4",
+    "react-test-renderer": "16.0.0",
     "webpack": "^2.2.0",
     "webpack-dev-server": "^1.16.2"
   },
