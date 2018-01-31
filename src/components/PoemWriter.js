@@ -3,10 +3,15 @@ import React from "react";
 const isValidPoem = poem => {
   const lines = poem.split("\n").map(line => line.trim());
   const isCorrectLength = lines.length === 3;
-  const hasCorrectWordCount = lines[0].split(" ").length === 5 &&
-                              lines[1].split(" ").length === 3 &&
-                              lines[2].split(" ").length === 5;
-  return poem && isCorrectLength && hasCorrectWordCount;
+  if (poem && isCorrectLength) {
+    return(
+      lines[0].split(" ").length === 5 &&
+      lines[1].split(" ").length === 3 &&
+      lines[2].split(" ").length === 5
+    )
+  } else {
+    return false;
+  }
 }
 
 class PoemWriter extends React.Component {
@@ -14,7 +19,7 @@ class PoemWriter extends React.Component {
     super();
 
     this.state = {
-      value: "",
+      content: "",
       isValid: true
     };
   }
