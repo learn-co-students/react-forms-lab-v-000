@@ -5,7 +5,7 @@ class TwitterMessage extends React.Component {
     super();
 
     this.state = {
-      value: "",
+      message: "",
       remainingChars: 140,
     };
     //again, line 11 only needed for debugging.
@@ -13,9 +13,8 @@ class TwitterMessage extends React.Component {
   }
 
   handleChange = event => {
-    // debugger;
     this.setState({
-      value: event.target.value,
+      message: event.target.value,
       remainingChars: this.props.maxChars - event.target.value.length,
     })
   }
@@ -27,7 +26,7 @@ class TwitterMessage extends React.Component {
         <input
           type="text"
           onChange={this.handleChange}
-          value={this.state.value}
+          value={this.state.message}
         />
         <p>Max chars: {this.props.maxChars} </p>
         <p>You have {this.state.remainingChars} char left. </p>
@@ -35,5 +34,13 @@ class TwitterMessage extends React.Component {
     );
   }
 }
+
+// TwitterMessage.propTypes = {
+//   maxChars: PropTypes.number,
+// };
+//
+// TwitterMessage.defaultProps = {
+//   maxChars: 140,
+// };
 
 export default TwitterMessage;
