@@ -1,19 +1,52 @@
 import React from "react";
 
+function ShowError() {
+  return (
+    <div id="poem-validation-error" style={{ color: "red" }}>
+      This poem is not written in the right structure!
+    </div>
+  );
+}
+
 class PoemWriter extends React.Component {
   constructor() {
     super();
 
-    this.state = {};
+    this.state = {
+      value: "",
+      valid: false
+    };
+  }
+
+  handleInput = e => {
+    const poem = e.target.value;
+
+    this.setState({
+      value: poem
+    })
+    const lines = poem.split("\n")
+    if (lines.length === 3 && lines[0].split(" ").length >= 6 && lines[1].split(" ").length >= 4 && lines[2].split(" ").length >= 6){
+      this.setState({
+        valid: true
+      })
+    } else {
+      this.setState({
+        valid: false
+      })
+    }
   }
 
   render() {
+    const valid = this.state.valid;
+
     return (
       <div>
-        <textarea rows="3" cols="60" />
+        <textarea rows="3" cols="60" value={this.state.value} onChange={this.handleInput}/>
+        {!valid &&
         <div id="poem-validation-error" style={{ color: "red" }}>
           This poem is not written in the right structure!
         </div>
+        }
       </div>
     );
   }
