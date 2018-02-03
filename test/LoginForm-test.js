@@ -2,6 +2,10 @@ import React from "react";
 import { expect } from "chai";
 import sinon from "sinon";
 import { shallow } from "enzyme";
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() });
 
 import LoginForm from "../src/components/LoginForm";
 import { isValueInState, noop } from "./util";
