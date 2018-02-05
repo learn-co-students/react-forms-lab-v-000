@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "jsdom": "^9.9.1",
     "mocha": "^3.2.0",
     "react-scripts": "^1.0.7",
@@ -29,8 +31,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "mocha -w test/helpers.js test/*.js",
-    "dev:hot":
-      "webpack-dev-server --hot --inline --progress --colors --watch --display-error-details --display-cached --content-base ./",
+    "dev:hot": "webpack-dev-server --hot --inline --progress --colors --watch --display-error-details --display-cached --content-base ./",
     "test:watch": "npm run test -- --watch",
     "eject": "react-scripts eject"
   }
