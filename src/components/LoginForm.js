@@ -1,30 +1,42 @@
 import React from "react";
 
 class LoginForm extends React.Component {
-  constructor(props) {
-
-    super(props);
+  constructor() {
+    super();
+    this.state = {};
     this.state = {
       username: "",
       password: ""
     };
   }
 
-  handleInputChange = (event) =>{
-debugger
+  handleUsernameChange = event => {
     this.setState({
-    username:  event.target.username,
-    password: event.target.password,
-  })
-console.log( event.target)
+      username: event.target.value
+
+    })
+  }
+
+  handlePasswordChange = event => {
+    this.setState({
+      password: event.target.value
+    })
   }
 
   handleSubmit = (e) =>{
     e.preventDefault();
-    debugger
-    if(this.state.username !== '' && this.state.password !==''){
-      this.props.onSubmit(this.state);
+
+    if(this.state.username  && this.state.password){
+      this.props.onSubmit(this.state)
+    return true;
+
     }
+    else
+      {
+        return false;
+      }
+
+
   }
 
 
@@ -35,13 +47,13 @@ console.log( event.target)
         <div>
           <label>
             Username
-            <input id="username" type="text" value={this.state.username} onChange={this.handleInputChange}/>
+            <input id="test-username" type="text" value={this.state.username} onChange={this.handleUsernameChange}/>
           </label>
         </div>
         <div>
           <label>
             Password
-            <input id="password" type="password" value={this.state.password} onChange={this.handleInputChange}/>
+            <input id="test-password" type="password" value={this.state.password} onChange={this.handlePasswordChange}/>
           </label>
         </div>
         <div>
