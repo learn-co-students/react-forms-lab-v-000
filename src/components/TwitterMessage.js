@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import PropTypes from 'prop-types';
 
 class TwitterMessage extends React.Component {
@@ -6,37 +6,44 @@ class TwitterMessage extends React.Component {
     super();
 
     this.state = {
-      chars: ''
-    }
+      message: ''
+    };
   }
 
-  handleChange = event => {
+  handleInput = (e) => {
+    console.log(this.state)
     this.setState({
-      chars: event.target.value
+      message: e.target.value
     });
   }
 
   render() {
+    var charCompare = this.props.maxChars - this.state.message.length;
     return (
       <div>
         <strong>Your message:</strong>
         <input
           type="text"
-          onChange={this.handleChange}
-          value={this.state.chars}
-        />
-        <p>{this.props.maxChars - this.state.chars.length}</p>
+          value={this.state.message}
+          onChange={this.handleInput}
+        /><br />
+        <p>{charCompare >= 0 ?
+          <small style={{color: "green"}}>{charCompare} characters remaining for current message.</small> :
+          <small style={{color: "red"}}>{Math.abs(charCompare)} characters beyond the 140 char max!!!</small>
+        }</p>
       </div>
     );
   }
 }
 
 TwitterMessage.defaultProps = {
-  maxChars: 140
-};
+  maxChars: 140,
+}
 
 TwitterMessage.propTypes = {
-  maxChars: PropTypes.number
-};
+  maxChars: PropTypes.number,
+}
+
+
 
 export default TwitterMessage;
