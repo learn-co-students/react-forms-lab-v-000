@@ -18,14 +18,10 @@ class PoemWriter extends React.Component {
   validatePoem = () => {
     const poem = this.state.verses
     const verses = poem.split("\n").map(line => line.trim());
-    console.log(verses)
     const isValidPoemLength = (verses.length === 3)
-    console.log("Validate Poems Length:", isValidPoemLength)
 
     if (poem && isValidPoemLength) {
       const isValidVersesLength = (verses[0].split(" ").length === 5 && verses[1].split(" ").length === 3 && verses[2].split(" ").length === 5)
-      console.log("Verse 1:",  verses[0].split(" "))
-      console.log("Validate lines length:", isValidVersesLength)
       if (isValidVersesLength){
       return true
       } else {
