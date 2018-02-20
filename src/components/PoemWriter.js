@@ -19,9 +19,9 @@ class PoemWriter extends React.Component {
     )
   }
 
-  handleInput = event => {
+  handleInput = e => {
     this.setState({
-      value: event.target.value,
+      value: e.target.value,
     }, () => {
         if (this.checkCorrectFields()) {
           this.setState({
