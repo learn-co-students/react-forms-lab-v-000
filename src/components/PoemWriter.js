@@ -12,14 +12,11 @@ class PoemWriter extends React.Component {
 
   handleChange = (event) => {
     let val = event.target.value;
+    this.setState({ value: val })
 
     let lines = val.split("\n");
 
-    let correctNumLines = lines === 3;
-    let correctFirstLine = lines[0].split(" ").length === 5;
-    let correctSecLine = lines[1].split(" ").length === 3;
-    let correctThirdLine = lines[2].split(" ").length === 5;
-
+    let correctNumLines = lines.length === 3;
     if (!correctNumLines) {
       this.setState({
         hasError: true,
@@ -27,13 +24,16 @@ class PoemWriter extends React.Component {
       return
     }
 
+    let correctFirstLine = lines[0].trim().split(" ").length === 5;
+    let correctSecLine = lines[1].trim().split(" ").length === 3;
+    let correctThirdLine = lines[2].trim().split(" ").length === 5;
+
     if (!correctFirstLine || !correctSecLine || !correctThirdLine) {
       this.setState({
         hasError: true,
       })
     } else {
       this.setState({
-        value: val,
         hasError: false,
       })
     }
@@ -42,14 +42,15 @@ class PoemWriter extends React.Component {
   render() {
     return (
       <div>
-        <textarea 
-          rows="3" 
+        <textarea
+          rows="3"
           cols="60"
           value={this.state.value}
           onChange={this.handleChange} />
-        {this.state.hasError ? (<div id="poem-validation-error" style={{ color: "red" }}>
-          This poem is not written in the right structure!
-        </div>) : null}
+        {this.state.hasError
+          ? (
+            <div id="poem-validation-error" style={{ color: "red" }}>This poem is not written in the right structure!</div>
+          ) : (null)}
       </div>
     );
   }
