@@ -44,7 +44,7 @@ describe("<LoginForm />", () => {
   describe("Calling `onSubmit` callback prop", () => {
     it("should call the prevent the default action when the form is being submitted", () => {
       const wrapper = shallow(<LoginForm />);
-      wrapper.find("form").simulate("submit", { preventDefault: spy });
+      wrapper.find("button").simulate("submit", { preventDefault: spy });
       expect(
         spy.calledOnce,
         "The default form action is not being prevented when the form is submitted"
@@ -63,7 +63,7 @@ describe("<LoginForm />", () => {
           value: "supersecret",
         },
       });
-      wrapper.find("form").simulate("submit", { preventDefault: spy });
+      wrapper.find("button").simulate("submit", { preventDefault: spy });
       expect(spy.called, "The `onSubmit` prop is not being called").to.be.true;
     });
 
@@ -80,7 +80,7 @@ describe("<LoginForm />", () => {
           value: "supersecret",
         },
       });
-      wrapper.find("form").simulate("submit", { preventDefault: noop });
+      wrapper.find("button").simulate("submit", { preventDefault: noop });
       expect(
         spy.called,
         "The `onSubmit` prop is being called with one or more empty form fields"
@@ -92,7 +92,7 @@ describe("<LoginForm />", () => {
       wrapper.find("#test-password").simulate("change", {
         target: { name: "password", id: "test-password", value: "" },
       });
-      wrapper.find("form").simulate("submit", { preventDefault: noop });
+      wrapper.find("button").simulate("submit", { preventDefault: noop });
       expect(
         spy.called,
         "The `onSubmit` prop is being called with one or more empty form fields"
