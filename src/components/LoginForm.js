@@ -1,8 +1,8 @@
 import React from "react";
 
 class LoginForm extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       username: 'username',
@@ -17,15 +17,12 @@ class LoginForm extends React.Component {
   }
 
   handleSubmit = (e)=> {
-    if (this.state.username != '' && this.state.password != '') {
-      this.props.onSubmit();
-      e.preventDefault();
-    }
+    e.preventDefault()
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} >
+      <form onSubmit={this.handleSubmit}>
         <div>
           <label>
             Username
