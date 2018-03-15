@@ -6,6 +6,7 @@ import React from "react";
   const isPoemValid = poem => {
     // Split the poem on newline, trim each line for whitespace
     const poemLines = poem.split('\n').map(line => line.trim())
+    console.log('poemLines: ', poemLines)
     // Check the amount of lines
     const isRightAmountOfLines = poemLines.length === 3
     
