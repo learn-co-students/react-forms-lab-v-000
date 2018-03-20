@@ -4,7 +4,15 @@ class LoginForm extends React.Component {
   constructor() {
     super();
 
-    this.state = {};
+    this.state = {
+      value: ''
+    };
+  }
+
+  handleChange = event => {
+    this.setState({
+      value: event.target.value,
+    });
   }
 
   render() {
@@ -13,7 +21,7 @@ class LoginForm extends React.Component {
         <div>
           <label>
             Username
-            <input id="test-username" type="text" />
+            <input id="test-username" type="text" value={this.state.value} onChange={this.handleChange} />
           </label>
         </div>
         <div>
