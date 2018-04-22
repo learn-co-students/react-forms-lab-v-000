@@ -32,8 +32,8 @@ class PoemWriter extends React.Component {
       <div>
         <textarea rows="3" cols="60" value={this.state.poem} onChange={this.handleChange}/>
         {!this.state.isValid ? (<div id="poem-validation-error" style={{ color: "red" }}>
-          This poem is not written in the right structure!
-        </div>) : null}
+          The first and third line must have five words; the second line must have three words.
+        </div>) : <p>What a lovely poem!</p>}
       </div>
     );
   }
