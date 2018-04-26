@@ -4,9 +4,11 @@ class LoginForm extends React.Component {
   constructor() {
     super();
 
-    this.state = {};
+    this.state = {username: "", password: ""};
   }
-
+  handleChange(event) {
+    this.setState({name: event.target.value});
+  }
   render() {
     return (
       <form>
@@ -30,4 +32,5 @@ class LoginForm extends React.Component {
   }
 }
 
+LoginForm.propTypes = {onSubmit = PropTypes.func,}
 export default LoginForm;
