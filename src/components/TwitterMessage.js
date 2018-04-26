@@ -6,18 +6,18 @@ class TwitterMessage extends React.Component {
     super();
 
     this.state = {
-      value: ""
+      message: ""
     };
   }
-  handleChange(event) {
-    this.setState({value: event.target.value});
+  handleChange = (event) => {
+    this.setState({message: event.target.value});
   }
   render() {
     return (
       <div>
         <strong>Your message:</strong>
-        <input type="text" value={this.state.value} onChange={this.handleChange}/>
-      <span>{this.props.maxChars - this.state.value.length}</span>
+        <input type="text" value={this.state.message} onChange={this.handleChange}/>
+      <span>{this.props.maxChars - this.state.message.length}</span>
       </div>
     );
   }
@@ -26,8 +26,8 @@ class TwitterMessage extends React.Component {
 TwitterMessage.propTypes = {
   maxChars: PropTypes.number,
 }
-TwitterMessage.defaultProps = {
-  maxChars: 100,
-};
+// TwitterMessage.defaultProps = {
+//   maxChars: 140,
+// };
 
 export default TwitterMessage;
