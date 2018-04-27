@@ -1,19 +1,37 @@
 import React from "react";
 import PropTypes from "prop-types";
+
+function isValid(poem){
+  const poemLines = poem.split("\n").map(line => line.trim());
+  if(poemLines === 3){
+    if(poemLines[0].split(" ").length === 5 &&
+      poemLines[1].split(" ").length === 3 &&
+      poemLines[2].split(" ").length === 5){return true}
+    else{return false}
+  }
+  else{return false}
+}
 class PoemWriter extends React.Component {
   constructor() {
     super();
+    this.state = {poem: "", validity: true};
+  }
+  handleChange=(event)=>{
+    const poem = event.target.value
+    this.setState({poem, validity: isValid(poem)});
 
-    this.state = {};
   }
 
   render() {
     return (
       <div>
-        <textarea rows="3" cols="60" />
-        <div id="poem-validation-error" style={{ color: "red" }}>
-          This poem is not written in the right structure!
-        </div>
+        <textarea rows="3" cols="60" value={this.state.poem} onChange={this.handleChange}/>
+        {!this.state.isValid ? (
+                  <div id="poem-validation-error" style={{ color: "red" }}>
+                    This poem is not written in the right structure!
+                  </div>
+                ) : null}
+
       </div>
     );
   }
