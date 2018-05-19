@@ -3,13 +3,11 @@ import React from "react";
 class PoemWriter extends React.Component {
   constructor() {
     super();
-
     this.state = {
       value: '',
       valid: false,
     }
   }  
-
   handleChange = (event)=> {
     this.setState({
         ...this.state,
@@ -17,7 +15,7 @@ class PoemWriter extends React.Component {
     },this.validateContent)
   }
 
-  testPoem(poem){
+  testPoem = (poem)=> {
     if (poem.length === 3){
       return [5,3,5].every(function(element, i, array){
         return element === poem[i]
@@ -26,16 +24,15 @@ class PoemWriter extends React.Component {
       return false
     }
   }
-    validPoem =()=>{
+  validPoem =()=>{
     this.setState({
       ...this.state,
       valid: true,
-    }, ()=> this.state.valid)
+    })
   }
 
-  validateContent(event){
-    const lines = this.state.value.split("\n")
-    let poem = lines.map(function(line){
+  validateContent = (event)=> {
+    let poem = this.state.value.split("\n").map(function(line){
       return line.trim().split(' ').length
     })
     this.testPoem(poem) ? this.validPoem() : null
