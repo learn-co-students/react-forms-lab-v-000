@@ -10,21 +10,16 @@ class LoginForm extends React.Component {
     };
   }
 
-  usernameListener = (e) => {
+  changeListener = e => {
+    const { name, value } = e.target;
     this.setState({
-      username: e.target.value
-    })
-  }
-
-  passwordListener = (e) => {
-    this.setState({
-      password: e.target.value
-    })
-  }
+      [name]: value
+    });
+  };
 
   submit = (e) => {
     e.preventDefault();
-    if (!(this.state.username === '' && this.state.password === '')) {
+    if (!!this.state.username && !!this.state.password) {
       this.props.onSubmit
     }
   }
@@ -35,13 +30,13 @@ class LoginForm extends React.Component {
         <div>
           <label>
             Username
-            <input id="test-username" type="text" value={this.state.username} name="username" onChange={this.usernameListener} required />
+            <input id="test-username" type="text" value={this.state.username} name="username" onChange={this.changeListener} required />
           </label>
         </div>
         <div>
           <label>
             Password
-            <input id="test-password" type="password" value={this.state.password} name="password" onChange={this.passwordListener} required />
+            <input id="test-password" type="password" value={this.state.password} name="password" onChange={this.changeListener} required />
           </label>
         </div>
         <div>
