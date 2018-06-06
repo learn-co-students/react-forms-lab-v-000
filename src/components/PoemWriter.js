@@ -1,7 +1,7 @@
 import React from 'react';
 
 const isValidPoem = (poem) => {
-  const poemLines = poem.split("\n").map(line => line.trim());
+  const poemLines = poem.split("\n");
   const hasCorrectAmountOfLines = poemLines.length === 3;
   if (poem && hasCorrectAmountOfLines) {
     return (
