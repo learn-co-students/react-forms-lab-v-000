@@ -1,33 +1,51 @@
 import React from "react";
 
 class LoginForm extends React.Component {
-  constructor() {
-    super();
+    constructor(props) {
+        super(props);
 
-    this.state = {};
-  }
+        this.state = {
+            username: '',
+            password: '',
+        };
+        this.handleChange = this.handleChange.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
+    }
 
-  render() {
-    return (
-      <form>
-        <div>
-          <label>
+    onSubmit(event) {
+        event.preventDefault();
+    }
+
+    handleChange(event) {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+        this.setState(
+            {[name]: value},
+        );
+    }
+
+    render() {
+        return (
+            <form onSubmit={this.onSubmit}>
+            <div>
+            <label>
             Username
-            <input id="test-username" type="text" />
-          </label>
-        </div>
-        <div>
-          <label>
+            <input id="test-username" type="text" name="username" value={this.state.username} onChange={this.handleChange}/>
+            </label>
+            </div>
+            <div>
+            <label>
             Password
-            <input id="test-password" type="password" />
-          </label>
-        </div>
-        <div>
-          <button type="submit">Log in</button>
-        </div>
-      </form>
-    );
-  }
+            <input id="test-password" type="password" name="password" value={this.state.password} onChange={this.handleChange}/>
+            </label>
+            </div>
+            <div>
+            <button type="submit">Log in</button>
+            </div>
+            </form>
+        );
+    }
 }
 
 export default LoginForm;
