@@ -5,15 +5,16 @@ class LoginForm extends React.Component {
     super();
 
     this.state = {
-      username: "",
-      password: ""
+      username: '',
+      password: '',
     };
   }
 
- 
+
 
 
   handleChange = event => {
+    debugger
     // const {name, value } = event.target;
     const name = event.target.name
     const value = event.target.value
@@ -23,11 +24,11 @@ class LoginForm extends React.Component {
     });
   }
 
- onSubmit = event => {
-    debugger
+ handleSubmit = event => {
     event.preventDefault();
     
   }
+  
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
