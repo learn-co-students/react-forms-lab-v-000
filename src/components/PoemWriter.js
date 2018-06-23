@@ -31,12 +31,11 @@ class PoemWriter extends React.Component {
        let firstLine = lines[0].split(" ").length
        let secondLine = lines[1].split(" ").length
        let thirdLine = lines[2].split(" ").length
-       debugger
+
       return (
         firstLine === 5 && secondLine === 3 && thirdLine === 5
       )
     } else { 
-   
       return false;
     }
   }
