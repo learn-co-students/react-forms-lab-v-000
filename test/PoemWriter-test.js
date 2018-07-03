@@ -9,12 +9,12 @@ import { isValueInState } from "./util";
 const INVALID_POEM = `${"word ".repeat(2)}
 ${"word ".repeat(5)}`;
 
-const VALID_POEM = `${"word ".repeat(5)}
-${"word ".repeat(3)}
-${"word ".repeat(5)}`;
+const VALID_POEM = `${"word ".repeat(4) + "word"}
+${"word ".repeat(2) + "word"}
+${"word ".repeat(4) + "word"}`;
 
 const VALID_POEM_WITH_EXTRA_WHITESPACE = `${"word ".repeat(5)}
-  ${"word ".repeat(3)}
+${"word ".repeat(3)}
 ${"word ".repeat(5)}  `;
 
 describe("<PoemWriter />", () => {
@@ -70,13 +70,13 @@ describe("<PoemWriter />", () => {
       );
     });
 
-    it("should not show an error when the poem is valid but has extra whitespace", () => {
+    it("should show an error when the poem is valid but has extra whitespace", () => {
       const wrapper = shallow(<PoemWriter />);
       wrapper.find("textarea").simulate("change", {
         target: { value: VALID_POEM_WITH_EXTRA_WHITESPACE },
       });
       expect(wrapper.find("#poem-validation-error").length).to.equal(
-        0,
+        1,
         "The poem validation error is being shown"
       );
     });
