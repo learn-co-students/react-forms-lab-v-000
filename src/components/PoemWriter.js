@@ -29,17 +29,22 @@ class PoemWriter extends React.Component {
 
 
   render() {
-    console.log(this.state.isError)
+    console.log(this)
     let style = this.state.isError ? {color: "red"} : {display: "none"}
-
-    return (
-      <div>
-        <textarea rows="3" cols="60" value={this.state.value} onChange={this.handleChange}/>
-        <div id="poem-validation-error" style={style}>
-          This poem is not written in the right structure
+    if (this.state.isError){
+      return (
+        <div>
+          <textarea rows="3" cols="60" value={this.state.value} onChange={this.handleChange}/>
+          <div id="poem-validation-error" style={style}>
+            This poem is not written in the right structure
+          </div>
         </div>
-      </div>
-    );
+      )
+    } else {
+      return(
+        <textarea rows="3" cols="60" value={this.state.value} onChange={this.handleChange}/>
+      )
+    }
   }
 }
 
