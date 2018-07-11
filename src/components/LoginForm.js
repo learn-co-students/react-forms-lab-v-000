@@ -58,8 +58,4 @@ class LoginForm extends React.Component {
   }
 }
 
-LoginForm.propTypes = {
-
-}
-
 export default LoginForm;
