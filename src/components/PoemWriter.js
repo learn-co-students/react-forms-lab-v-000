@@ -52,10 +52,7 @@ class PoemWriter extends React.Component {
         This poem is not written in the right structure!
       </div>
 
-    let error_msg = 'This poem is not written in the right structure!'
-
     if (this.state.hide_error) {
-      error_msg = ''
       error_div = null
     }
 
