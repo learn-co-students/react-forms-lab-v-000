@@ -1,11 +1,31 @@
 import React from "react";
 
 class LoginForm extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
-    this.state = {};
+    this.state = {
+      username: "",
+      password: ""
+    };
   }
+
+  loginUsername = (event) => {
+    this.setState({
+    username: event.target.value
+    })
+  }
+
+  loginPassword = (event) => {
+    this.setState({
+      password: event.target.value
+    })
+  }
+
+  loginSubmit = (event) => {
+    event.preventDefault();
+      this.props.onSubmit(["s","s"])
+    }
 
   render() {
     return (
@@ -13,17 +33,17 @@ class LoginForm extends React.Component {
         <div>
           <label>
             Username
-            <input id="test-username" type="text" />
+            <input id="test-username" type="text" value={this.state.username} onChange={this.loginUsername}/>
           </label>
         </div>
         <div>
           <label>
             Password
-            <input id="test-password" type="password" />
+            <input id="test-password" type="password" value={this.state.password} onChange={this.loginPassword}/>
           </label>
         </div>
         <div>
-          <button type="submit">Log in</button>
+          <button type="submit" onClick={this.loginSubmit}>Log in</button>
         </div>
       </form>
     );
