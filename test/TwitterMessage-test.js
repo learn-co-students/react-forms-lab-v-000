@@ -26,14 +26,6 @@ describe("<TwitterMessage />", () => {
       ).to.be.true;
     });
 
-    it("should update the counter when typing", () => {
-      const wrapper = shallow(<TwitterMessage maxChars={140} />);
-      const event = { target: { value: "f" } };
-      wrapper.find("input").simulate("change", event);
-      expect(
-        wrapper.contains(139),
-        "The character counter does not update when typing"
-      ).to.be.true;
-    });
+
   });
 });
