@@ -15,8 +15,9 @@ class LoginForm extends React.Component {
 
   submitHandler = event => {
     event.preventDefault();
-    console.log("Hello")
-
+    if (this.state.username && this.state.password) {
+      this.props.onSubmit({username: this.state.username, password: this.state.password});
+    }
   }
 
   render() {
