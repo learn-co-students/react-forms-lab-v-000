@@ -23,6 +23,7 @@ class LoginForm extends React.Component {
     const {username, password} = this.state
     if(username && password) {
       this.props.onSubmit({username, password})
+      // can also just use this.state vs. a constant?
     }
   }
 
