@@ -34,7 +34,7 @@
     "sinon": "^6.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start -a $IP -p $PORT",
     "build": "react-scripts build",
     "test": "mocha -w test/helpers.js test/*.js",
     "dev:hot":
