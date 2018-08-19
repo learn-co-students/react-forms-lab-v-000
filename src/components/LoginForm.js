@@ -13,13 +13,12 @@ class LoginForm extends React.Component {
   handleInputChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value
-    }, console.log('name : ', event.target.name, ' | value : ', event.target.value))
-  }
+    }, () => {console.log('name : ', event.target.name, ' | value : ', event.target.value)})
+  } // NOTE : ShallowWrapper tester apparently needs a callback function, so just added a test console -- https://github.com/airbnb/enzyme/blob/master/docs/api/ShallowWrapper/setState.md
   
   handleFormSubmit = (event) => {
     console.log('submit form')
     event.preventDefault()
-    event.persist()
     if (this.state.username !== '' && this.state.password !== '') {
       console.log('submit form : ', this.state.username, this.state.password)
       this.props.onSubmit(this.state)

@@ -13,8 +13,8 @@ class TwitterMessage extends React.Component {
   updateText = (event) => {
     this.setState({
       messageText: event.target.value
-    }, console.log(this.state.messageText))
-  }
+    }, () => {console.log(this.state.messageText)})
+  } // NOTE : ShallowWrapper tester apparently needs a callback function, so just added a test console -- https://github.com/airbnb/enzyme/blob/master/docs/api/ShallowWrapper/setState.md
 
 
   render() {
