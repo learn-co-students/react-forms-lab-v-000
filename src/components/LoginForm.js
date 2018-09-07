@@ -30,6 +30,10 @@ class LoginForm extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
     // this.sendFormDataSomewhere(this.state)
+    // should handle blank inputs... seems to automatically when submit prop is not passed in here. Why? auto pass to this.props.submit?
+    if (this.state.username != "" && this.state.password != "") {
+      this.props.onSubmit(event);
+    }
   }
 
   render() {
@@ -38,13 +42,13 @@ class LoginForm extends React.Component {
         <div>
           <label>
             Username
-            <input id="username" name="username" type="text" onChange={this.handleUser} value={this.state.username} />
+            <input id="username" name="username" type="text" onChange={this.handleUser} value={this.state.username} required="true" />
           </label>
         </div>
         <div>
           <label>
             Password
-            <input id="password" name="password" type="password" onChange={this.handlePass} value={this.state.password} />
+            <input id="password" name="password" type="password" onChange={this.handlePass} value={this.state.password} required="true" />
           </label>
         </div>
         <div>
