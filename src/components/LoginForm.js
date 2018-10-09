@@ -12,7 +12,7 @@ class LoginForm extends React.Component {
 
   handleSubmit = (e) => {
     if (e) e.preventDefault();
-    console.log('DID IT!!')
+    console.log('I did it!!')
   }
 
   render() {
