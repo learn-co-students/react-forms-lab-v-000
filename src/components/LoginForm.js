@@ -24,17 +24,17 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={event => this.handleSubmit(event)}>
+      <form onSubmit={this.handleSubmit}>
         <div>
           <label>
             Username
-            <input id="username" name="username" type="text" onChange={event => this.handleChange(event)} />
+            <input id="username" name="username" type="text" onChange={this.handleChange} />
           </label>
         </div>
         <div>
           <label>
             Password
-            <input id="password" name="password" type="password" onChange={event => this.handleChange(event)} />
+            <input id="password" name="password" type="password" onChange={this.handleChange} />
           </label>
         </div>
         <div>
