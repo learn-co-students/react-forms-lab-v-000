@@ -12,9 +12,7 @@ class TwitterMessage extends React.Component {
 
   changeInput = (e) => {
     let message = e.target.value
-    let array = message.split("")
-    let number = array.length
-    let charsLeft = this.state.maxChars - number
+    let charsLeft = this.state.maxChars - message.length
     this.setState({
       message: e.target.value,
       charLeft: charsLeft,
