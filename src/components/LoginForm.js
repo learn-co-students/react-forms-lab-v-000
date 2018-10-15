@@ -4,7 +4,10 @@ class LoginForm extends React.Component {
   constructor() {
     super();
 
-    this.state = {};
+    this.state = {
+      username: '',
+      password: ''
+    };
   }
 
   handleSubmit = event => {
@@ -14,23 +17,23 @@ class LoginForm extends React.Component {
 
   handleUpdate = event => {
     this.setState({
-      value: event.target.value
+      [event.target.name]: event.target.value
     })
   }
 
   render() {
     return (
-      <form onSubmit={event => this.handleSubmit(event)}>
+      <form onSubmit={this.handleSubmit}>
         <div>
           <label>
             Username
-            <input id="username" name="username" type="text" value={this.state.username} onchange={this.handleUpdate} />
+            <input id="username" name="username" type="text" value={this.state.username} onChange={this.handleUpdate} />
           </label>
         </div>
         <div>
           <label>
             Password
-            <input id="password" name="password" type="password" value={this.state.password} onchange={this.handleUpdate} />
+            <input id="password" name="password" type="password" value={this.state.password} onChange={this.handleUpdate} />
           </label>
         </div>
         <div>
