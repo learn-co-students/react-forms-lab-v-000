@@ -10,16 +10,21 @@ class LoginForm extends React.Component {
     };
   }
 
-  handleInputChange = (event) =>{
-    this.setState({
-      username: event.target.value,
-    })
-  }
+  // handleInputChange = (event) =>{
+  //   this.setState({
+  //     username: event.target.value,
+  //   })
+  // }
 
-  handlePasswordChange = (event) => {
-    debugger
+  // handlePasswordChange = (event) => {
+  //   debugger
+  //   this.setState({
+  //     password: event.target.value,
+  //   })
+  // }
+  handleChange = (event) =>{
     this.setState({
-      password: event.target.value,
+      [event.target.name]: event.target.value
     })
   }
 
@@ -40,7 +45,7 @@ class LoginForm extends React.Component {
               name="username" 
               type="text"
               value={this.state.username}
-              onChange={this.handleInputChange} />
+              onChange={this.handleChange} />
           </label>
         </div>
 
@@ -52,7 +57,7 @@ class LoginForm extends React.Component {
               name="password" 
               type="password"
               value={this.state.password}
-              onChange={this.handlePasswordChange} />
+              onChange={this.handleChange} />
           </label>
         </div>
         <div>
