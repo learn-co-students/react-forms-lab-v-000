@@ -1,4 +1,3 @@
-
 # React Controlled Components Lab
 
 ## Overview
