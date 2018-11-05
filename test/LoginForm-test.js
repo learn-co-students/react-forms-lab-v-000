@@ -1,22 +1,23 @@
 import React from "react";
 import { expect } from "chai";
 import sinon from "sinon";
-import { configure, shallow, mount } from "enzyme";
-import App from '../src/App'
+import { shallow } from "enzyme";
+
 import LoginForm from "../src/components/LoginForm";
 import { isValueInState, noop } from "./util";
-import Adapter from 'enzyme-adapter-react-16'
-
-configure({ adapter: new Adapter() })
 
 describe("<LoginForm />", () => {
+  const spy = sinon.spy();
+
+  afterEach(() => {
+    spy.reset();
+  });
 
   describe("Saving input values in state", () => {
     it("should save the username in state when the input changes", () => {
       const wrapper = shallow(<LoginForm />);
-
-      wrapper.find("#username").simulate("change", {
-        target: { name: "username", id: "username", value: "johndoe" },
+      wrapper.find("#test-username").simulate("change", {
+        target: { name: "username", id: "test-username", value: "johndoe" },
       });
       expect(
         isValueInState(wrapper.state(), "johndoe"),
@@ -26,10 +27,10 @@ describe("<LoginForm />", () => {
 
     it("should save the password in state when the input changes", () => {
       const wrapper = shallow(<LoginForm />);
-      wrapper.find("#password").simulate("change", {
+      wrapper.find("#test-password").simulate("change", {
         target: {
           name: "password",
-          id: "password",
+          id: "test-password",
           value: "supersecret",
         },
       });
@@ -42,44 +43,24 @@ describe("<LoginForm />", () => {
 
   describe("Calling `onSubmit` callback prop", () => {
     it("should call the prevent the default action when the form is being submitted", () => {
-      let spy = sinon.spy()
-      const wrapper = mount(<App />);
+      const wrapper = shallow(<LoginForm />);
       wrapper.find("form").simulate("submit", { preventDefault: spy });
-
       expect(
         spy.calledOnce,
         "The default form action is not being prevented when the form is submitted"
       ).to.be.true;
     });
 
-    it("should call the `onSubmit` callback prop when the form is being submitted", () => {
-      let spy = sinon.spy()
-      const wrapper = shallow(<LoginForm onSubmit={spy} />);
-      wrapper.find("#username").simulate("change", {
-        target: { name: "username", id: "username", value: "johndoe" },
-      });
-      wrapper.find("#password").simulate("change", {
-        target: {
-          name: "password",
-          id: "password",
-          value: "supersecret",
-        },
-      });
-      wrapper.find("form").simulate("submit", { preventDefault: spy });
-      expect(spy.called, "The `onSubmit` prop is not being called").to.be.true;
-    });
-
     it("should not call the `onSubmit` callback prop when the username and/or password fields are empty", () => {
-      let spy = sinon.spy()
       const wrapper = shallow(<LoginForm onSubmit={spy} />);
 
-      wrapper.find("#username").simulate("change", {
-        target: { name: "username", id: "username", value: "" },
+      wrapper.find("#test-username").simulate("change", {
+        target: { name: "username", id: "test-username", value: "" },
       });
-      wrapper.find("#password").simulate("change", {
+      wrapper.find("#test-password").simulate("change", {
         target: {
           name: "password",
-          id: "password",
+          id: "test-password",
           value: "supersecret",
         },
       });
@@ -89,11 +70,11 @@ describe("<LoginForm />", () => {
         "The `onSubmit` prop is being called with one or more empty form fields"
       ).to.be.false;
 
-      wrapper.find("#username").simulate("change", {
-        target: { name: "username", id: "username", value: "johndoe" },
+      wrapper.find("#test-username").simulate("change", {
+        target: { name: "username", id: "test-username", value: "johndoe" },
       });
-      wrapper.find("#password").simulate("change", {
-        target: { name: "password", id: "password", value: "" },
+      wrapper.find("#test-password").simulate("change", {
+        target: { name: "password", id: "test-password", value: "" },
       });
       wrapper.find("form").simulate("submit", { preventDefault: noop });
       expect(
@@ -101,17 +82,16 @@ describe("<LoginForm />", () => {
         "The `onSubmit` prop is being called with one or more empty form fields"
       ).to.be.false;
     });
-
+    
     it("should call the `onSubmit` callback prop when the form is being submitted", () => {
-      let spy = sinon.spy()
       const wrapper = shallow(<LoginForm onSubmit={spy} />);
-      wrapper.find("#username").simulate("change", {
-        target: { name: "username", id: "username", value: "johndoe" },
+      wrapper.find("#test-username").simulate("change", {
+        target: { name: "username", id: "test-username", value: "johndoe" },
       });
-      wrapper.find("#password").simulate("change", {
+      wrapper.find("#test-password").simulate("change", {
         target: {
           name: "password",
-          id: "password",
+          id: "test-password",
           value: "supersecret",
         },
       });
