@@ -20,7 +20,7 @@ class LoginForm extends React.Component {
     e.preventDefault()
     const username = this.state.username
     const password = this.state.password
-    username && password ? this.props.onSubmit(username, password) : null
+    username && password ? this.props.onSubmit(this.state) : null
   }
 
   render() {
