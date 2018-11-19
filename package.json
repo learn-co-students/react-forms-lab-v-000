@@ -28,6 +28,7 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "mocha-multi": "^1.0.1",
+    "raf": "^3.4.1",
     "react": "^16.4.1",
     "react-addons-test-utils": "^15.4.2",
     "react-dom": "^16.4.1",
@@ -37,8 +38,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "mocha -w test/helpers.js test/*.js",
-    "dev:hot":
-      "webpack-dev-server --hot --inline --progress --colors --watch --display-error-details --display-cached --content-base ./",
+    "dev:hot": "webpack-dev-server --hot --inline --progress --colors --watch --display-error-details --display-cached --content-base ./",
     "test:watch": "npm run test -- --watch",
     "eject": "react-scripts eject"
   }
