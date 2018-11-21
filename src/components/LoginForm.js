@@ -22,7 +22,7 @@ class LoginForm extends React.Component {
   handleSubmit(event){
     event.preventDefault();
 
-    if (this.state.username === '' || this.state.password ==== ''){
+    if (this.state.username === '' || this.state.password === ''){
       // do nothing
     } else {
       this.props.onSubmit(this.state)
