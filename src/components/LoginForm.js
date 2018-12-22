@@ -1,10 +1,10 @@
-import React from "react";
+import React from "react"
 
 class LoginForm extends React.Component {
   constructor() {
     super();
 
-    this.state = {};
+    this.state = {}
   }
 
   render() {
@@ -30,4 +30,4 @@ class LoginForm extends React.Component {
   }
 }
 
-export default LoginForm;
+export default LoginForm
