@@ -10,6 +10,7 @@ class LoginForm extends React.Component {
     }
   }
 
+  // generic handleChange to capture 'username' or 'password'
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
@@ -18,8 +19,10 @@ class LoginForm extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault()
-
-    if (!this.state.username || !this.state.password) return
+    // check that both fields are filled in
+    if (!this.state.username || !this.state.password) {
+      return
+    }
 
     this.props.onSubmit(this.state)
   }

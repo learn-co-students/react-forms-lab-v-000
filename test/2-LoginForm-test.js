@@ -44,7 +44,7 @@ describe("<LoginForm />", () => {
     it("should call the prevent the default action when the form is being submitted", () => {
       let spy = sinon.spy()
       const wrapper = mount(<App />);
-      wrapper.find("form").simulate("submit", { preventDefault: spy });
+      wrapper.find("LoginForm").simulate("submit", { preventDefault: spy });
 
       expect(
         spy.calledOnce,
