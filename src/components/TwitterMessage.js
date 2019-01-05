@@ -6,7 +6,6 @@ class TwitterMessage extends React.Component {
 
     this.state = {
       message: "",
-      // charsLeft: {this.props.maxChars}
     };
   }
 
