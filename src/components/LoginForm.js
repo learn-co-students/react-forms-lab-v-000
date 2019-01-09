@@ -18,7 +18,9 @@ class LoginForm extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-
+    if (this.state.username && this.state.password) {
+      this.props.onSubmit(this.state)
+    }
   }
 
   render() {
@@ -36,7 +38,7 @@ class LoginForm extends React.Component {
           <label>
             Password
             <input id="password" name="password" type="password"
-              value={this.state.username}
+              value={this.state.password}
               onChange={event => this.handleInputChange(event)} />
           </label>
         </div>
