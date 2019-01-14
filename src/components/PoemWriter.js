@@ -11,8 +11,8 @@ class PoemWriter extends React.Component {
 
 // UGH
   handleChange = (event) => {
-    if (){
-
+    if (!this.state.value){
+      console.log('bullocks')
     }
     this.setState({
       value: event.target.value,
