@@ -1,20 +1,27 @@
-import React from "react";
+import React from 'react'
 
 class TwitterMessage extends React.Component {
   constructor() {
-    super();
+    super()
 
-    this.state = {};
+    this.state = { tweet: '' }
+  }
+
+  handleChange = event => {
+    this.setState({
+      tweet: event.target.value,
+    })
   }
 
   render() {
     return (
       <div>
-        <strong>Your message:</strong>
-        <input type="text" />
+        <strong>Your message: </strong>
+        <input type="text" value={this.state.tweet} onChange={this.handleChange} />
+        <p><strong>Characters left: </strong>{this.props.maxChars - this.state.tweet.length} </p>
       </div>
-    );
+    )
   }
 }
 
-export default TwitterMessage;
+export default TwitterMessage
