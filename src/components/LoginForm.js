@@ -7,7 +7,7 @@ class LoginForm extends React.Component {
       username: '',
       password: ''
     };
-    this.handleSubmit = this.handleSubmit.bind(this)
+    // this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleChange = (event) => {
