@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-export default class LoginForm extends React.Component {
+class LoginForm extends React.Component {
   constructor() {
     super();
 
@@ -39,13 +39,13 @@ export default class LoginForm extends React.Component {
         <div>
           <label>
             Username
-            <input id="test-username" type="text" value={this.state.username} onChange={this.handleInputChange.bind(this, 'username')} />
+            <input id="username" name="username" type="text" />
           </label>
         </div>
         <div>
           <label>
             Password
-            <input id="test-password" type="password" value={this.state.password} onChange={this.handleInputChange.bind(this, 'password')} />
+            <input id="password" name="password" type="password" />
           </label>
         </div>
         <div>
@@ -56,6 +56,4 @@ export default class LoginForm extends React.Component {
   }
 }
 
-LoginForm.propTypes = {
-  onSubmit: React.PropTypes.func,
-};
+export default LoginForm;
