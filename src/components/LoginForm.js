@@ -6,46 +6,39 @@ class LoginForm extends React.Component {
 
     this.state = {
       username: '',
-      password: '',
+      password: ''
     };
-
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
-  handleInputChange(field, event) {
-    this.setState({
-      [field]: event.target.value,
+  handleOnChange = (event) => {
+    // console.log(event.target.name + ': ' + event.target.value)
+    this.setState({[event.target.name]: event.target.value}
+    , () => {
+      console.log(`username: ${this.state.username} \n pass: ${this.state.password}`)
     });
   }
 
-  handleFormSubmit(ev) {
-    ev.preventDefault();
-    const { username, password } = this.state;
-
-    if (!username || !password) {
-      return;
+  handleSub = (event) => {
+    event.preventDefault();
+    if (!this.state.username || !this.state.password) {
+      return
     }
-
-    this.props.onSubmit({
-      username,
-      password
-    });
+    this.props.onSubmit(this.state)
   }
 
   render() {
     return (
-      <form onSubmit={this.handleFormSubmit}>
+      <form onSubmit={this.handleSub}>
         <div>
           <label>
             Username
-            <input id="username" name="username" type="text" />
+            <input id="username" name="username" type="text" onChange={this.handleOnChange} value={this.state.username} />
           </label>
         </div>
         <div>
           <label>
             Password
-            <input id="password" name="password" type="password" />
+            <input id="password" name="password" type="password" onChange={this.handleOnChange} value={this.state.password} />
           </label>
         </div>
         <div>
