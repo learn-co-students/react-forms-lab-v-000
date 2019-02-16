@@ -1,25 +1,42 @@
-import React from "react";
+import React, { Component } from "react";
 
-class LoginForm extends React.Component {
-  constructor() {
-    super();
+export default class LoginForm extends Component {
+  state = {
+    username: "",
+    password: ""
+  };
 
-    this.state = {};
-  }
+  handleInputChanges = event => {
+    this.setState({
+      [event.target.id]: event.target.value
+    });
+  };
 
   render() {
     return (
-      <form>
+      <form onSubmit={event => event.preventDefault()}>
         <div>
           <label>
             Username
-            <input id="username" name="username" type="text" />
+            <input
+              id="username"
+              name="username"
+              type="text"
+              onChange={event => this.handleInputChanges(event)}
+              value={this.state.username}
+            />
           </label>
         </div>
         <div>
           <label>
             Password
-            <input id="password" name="password" type="password" />
+            <input
+              id="password"
+              name="password"
+              type="password"
+              onChange={event => this.handleInputChanges(event)}
+              value={this.state.password}
+            />
           </label>
         </div>
         <div>
@@ -29,5 +46,3 @@ class LoginForm extends React.Component {
     );
   }
 }
-
-export default LoginForm;
