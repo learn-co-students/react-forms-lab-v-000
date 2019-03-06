@@ -7,7 +7,12 @@ class LoginForm extends React.Component {
       username: "",
       password: ""
     };
+  }
 
+  handleInput = event => {
+    this.setState({
+      value: event.target.value
+    })
   }
 
   render() {
@@ -26,7 +31,7 @@ class LoginForm extends React.Component {
           </label>
         </div>
         <div>
-          <button type="submit">Log in</button>
+          <button type="submit" onSubmit={this.props.onSubmit}>Log in</button>
         </div>
       </form>
     );
