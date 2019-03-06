@@ -15,9 +15,18 @@ class LoginForm extends React.Component {
     })
   }
 
+  handleFormSubmit = event => {
+    if (this.state.username === "" || this.state.password === ""){
+      event.preventDefault()
+    }
+    else {
+      {this.props.onSubmit}
+    }
+  }
+
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleFormSubmit}>
         <div>
           <label>
             Username
@@ -31,7 +40,7 @@ class LoginForm extends React.Component {
           </label>
         </div>
         <div>
-          <button type="submit" onSubmit={this.props.onSubmit}>Log in</button>
+          <button type="submit">Log in</button>
         </div>
       </form>
     );
