@@ -10,35 +10,28 @@ class LoginForm extends React.Component {
     }
   }
 
-  handleNameChange = (event) => {
+  // generalized change handler
+  handleChange = (event) => {
     this.setState({
-      username: event.target.value,
-    })
-  }
-
-  handlePasswordChange = (event) => {
-    this.setState({
-      password: event.target.value,
+      // use bracket notation to assign keys to objects in object literals.
+      [event.target.name]: event.target.value,
     })
   }
 
   handleSubmit = (event) => {
     event.preventDefault()
-    if (event.target[0].value && event.target[1].value) {
-      console.log(event.target[0].value)
-      console.log(event.target[1].value)
-      const username = event.target[0].value
-      const password = event.target[1].value
 
-      this.props.onSubmit({username, password})
-    } else {
+    if (this.state.username && this.state.password) {
+
+      this.props.onSubmit(this.state)
+    }else {
       alert('no!')
     }
   }
 
   render() {
     return (
-      <form onSubmit={ (event) => this.handleSubmit(event) }>
+      <form onSubmit={this.handleSubmit}>
         <div>
           <label>
             Username
@@ -46,8 +39,7 @@ class LoginForm extends React.Component {
                id="username"
                type="text"
                name="username"
-               value={this.state.username}
-               onChange={this.handleNameChange}
+               onChange={this.handleChange}
              />
           </label>
         </div>
@@ -58,8 +50,7 @@ class LoginForm extends React.Component {
                id="password"
                type="text"
                name="password"
-               value={this.state.password}
-               onChange={this.handlePasswordChange}
+               onChange={this.handleChange}
              />
           </label>
         </div>
