@@ -17,13 +17,11 @@ class LoginForm extends React.Component {
   }
 
   handleSubmit = event => {
-    
-    if(this.username=='' || this.password=='') {
-      onSubmit.event.prevent.default()
-    } else { 
+    event.preventDefault()
+    if(this.username != '' || this.password != '') return
       this.props.onSubmit(this.state)
   }
-}
+
 
   render() {
     return (
