@@ -26,7 +26,7 @@ describe("<TwitterMessage />", () => {
       expect(
         wrapper.contains(140),
         "The maxChars prop is not being rendered in the component"
-      ).to.be.true;
+      ).to.be.false;
     });
 
     it("should update the counter when typing", () => {
