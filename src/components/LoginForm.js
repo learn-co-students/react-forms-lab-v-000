@@ -21,9 +21,13 @@ class LoginForm extends React.Component {
 
   handleLogin = event => {
     event.preventDefault()
-   this.state == (this.state.username == "") && (this.password == "") ? "" : this.props.handleLogin(this.state)
-     
-  }
+  //  (!this.state.username || !this.state.password ) ? "" : this.props.handleLogin(this.state)
+   
+  if (!this.state.username || !this.state.password) return
+
+  this.props.handleLogin(this.state)
+}  
+  
 // look at error the feature requests... 
   render() {
     return (
