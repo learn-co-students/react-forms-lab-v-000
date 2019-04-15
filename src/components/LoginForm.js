@@ -6,7 +6,6 @@ class LoginForm extends React.Component {
 
     this.state = {};
   }
-
   render() {
     return (
       <form>
