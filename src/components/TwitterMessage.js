@@ -5,29 +5,18 @@ class TwitterMessage extends React.Component {
     super();
 
     this.state = {
-      value: '',
+      message: '',
     };
   }
 
-  getInitialState = () => {
-          return {
-              chars_left: this.props.maxChars
-          };
-      }
 
+    handleChangeChars = event => {
 
-  handleChange = event => {
-    this.setState({
-      [event.target.message]: event.target.value
-    })
-  }
-
-  handleChangeChars = (event) => {
-          var input = event.target.value;
-          this.setState({
-              chars_left: this.props.maxChars - input.length
-          });
-      }
+            var input = event.target.value;
+            this.setState({
+                message: input
+            });
+        }
 
 
   render() {
@@ -38,37 +27,14 @@ class TwitterMessage extends React.Component {
          type="text"
          name="message"
          id="message"
-         value={this.state.value}
-         onChange={this.handleChange}
+         value={this.state.message}
+         onChange={this.handleChangeChars}
+         // onChange={this.handleChangeChars.bind(this)}
          maxLength="140" />
+           <p>Characters Left: {this.props.maxChars - this.state.message.length}</p>
       </div>
     );
   }
 }
 
 export default TwitterMessage;
-
-
-
-
-// var TwitterInput = React.createClass({
-//     getInitialState: function() {
-//         return {
-//             chars_left: max_chars
-//         };
-//     },
-//     handleChange(event) {
-//         var input = event.target.value;
-//         this.setState({
-//             chars_left: max_chars - input.length
-//         });
-//     },
-//     render: function() {
-//         return (
-//             <div>
-//                 <textarea onChange={this.handleChange.bind(this)}></textarea>
-//                 <p>Characters Left: {this.state.chars_left}</p>
-//             </div>
-//         );
-//     }
-// });
