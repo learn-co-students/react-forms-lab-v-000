@@ -10,9 +10,17 @@ class LoginForm extends React.Component {
     };
   }
 
+  updateLogin = (event) => {
+    this.setState({
+      username: event.target.value,
+      password: event.target.value
+    })
+    console.log()
+  }
+
   render() {
     return (
-      <form>
+      <form onSubmit={ event => this.updateLogin(event) } >
         <div>
           <label>
             Username
@@ -22,11 +30,8 @@ class LoginForm extends React.Component {
         <div>
           <label>
             Password
-            <input id="password" name="password" type="password" />
+            <input id="password" name="password" type="password"/>
           </label>
-        </div>
-        <div>
-          <button type="submit">Log in</button>
         </div>
       </form>
     );
