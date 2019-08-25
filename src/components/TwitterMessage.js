@@ -22,10 +22,7 @@ class TwitterMessage extends React.Component {
     return (
       <div>
         <strong>Your message:</strong>
-        <form onSubmit={event => this.handleSubmit(event)}>
-        <input type="text" onChange={event => this.handleInputChange(event)} name="message" id="message" value={this.state.message}
- />      
-        </form>
+        <input type="text" onChange={this.handleInputChange} name="message" id="message" value={this.state.message} />        
         <p>{this.props.maxChars - this.state.message.length}</p>
       </div>
     );
@@ -33,3 +30,4 @@ class TwitterMessage extends React.Component {
 }
 
 export default TwitterMessage;
+
