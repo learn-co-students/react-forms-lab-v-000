@@ -5,7 +5,7 @@ class TwitterMessage extends React.Component {
     super();
 
     this.state = {
-      message: "   Test default input"
+      message: ""
     };
   }
 
