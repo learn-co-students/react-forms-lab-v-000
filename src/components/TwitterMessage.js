@@ -10,16 +10,16 @@ import React from "react";
 
 
 class TwitterMessage extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
+  // constructor(props) {
+  //   super(props);
+  //
+  //   this.
+    state = {
       message: ""
     };
-  }
+  // }
 
   handleChange = (event) => {
-    const limit = this.props.maxChars
     this.setState({
       message: event.target.value
     })
