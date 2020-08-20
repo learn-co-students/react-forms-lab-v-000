@@ -20,8 +20,8 @@ class LoginForm extends React.Component {
 
   handleChanges = event => {
     this.setState({
-      username: event.target.value,
-      password: event.target.value
+      [event.target.name]: event.target.value,
+      // password: event.target.value
     })
   }
 
@@ -43,7 +43,7 @@ class LoginForm extends React.Component {
           </label>
         </div>
         <div>
-          <button onChange={event => this.handleChanges(event)} type="submit">Log in</button>
+          <button onChange={event => this.handleLogin(event)} type="submit">Log in</button>
         </div>
       </form>
     );
