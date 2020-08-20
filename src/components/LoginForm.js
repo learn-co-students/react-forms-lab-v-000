@@ -43,7 +43,7 @@ class LoginForm extends React.Component {
           </label>
         </div>
         <div>
-          <button onChange={event => this.handleLogin(event)} type="submit">Log in</button>
+          <button onChange={event => this.handleChanges(event)} type="submit">Log in</button>
         </div>
       </form>
     );
