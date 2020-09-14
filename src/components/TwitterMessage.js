@@ -4,26 +4,19 @@ class TwitterMessage extends React.Component {
   constructor() {
     super();
     this.state = {};
-    // maxChars prop is being set in parent component 
   }
 
-  // updateInput = event => {
-  //   this.setState({
-  //     value: event.target.value
-  //   })
-  // }
-
   updateInput = event => {
-    this.setState(previousState => {
-      return {
-        maxChars: previousState.maxChars - 1,
-        value: event.target.value
-      }
+    this.setState({
+      value: event.target.value,
+      remainingChars: this.props.maxChars - event.target.value.length 
     })
   }
   
-
   render() {
+    console.log("form props", this.props)
+    console.log("form state", this.state)
+
     return (
       <div>
         <strong>Your message:</strong>
@@ -32,8 +25,9 @@ class TwitterMessage extends React.Component {
         id="message" 
         value={this.state.value} 
         onChange={this.updateInput}/>
+        <p>You have "{this.state.remainingChars}" of {this.props.maxChars} characters remaining...</p>
       </div>
-    );
+    )
   }
 }
 
