@@ -3,14 +3,22 @@ import React from "react";
 class TwitterMessage extends React.Component {
   constructor() {
     super();
-    this.state = {
-      
-    };
+    this.state = {};
+    // maxChars prop is being set in parent component 
   }
 
+  // updateInput = event => {
+  //   this.setState({
+  //     value: event.target.value
+  //   })
+  // }
+
   updateInput = event => {
-    this.setState({
-      value: event.target.value,
+    this.setState(previousState => {
+      return {
+        maxChars: previousState.maxChars - 1,
+        value: event.target.value
+      }
     })
   }
   
