@@ -17,9 +17,17 @@ class LoginForm extends React.Component {
     })
   }
 
+  handleLogin = formData => {
+    // this.props.handleLogin();
+  }
+
   handleSubmit = event => {
     event.preventDefault()
-    let formData = { username: this.state.username, password: this.state.password }
+
+    let formData = { username: this.state.username, password: this.state.password };
+
+
+    this.handleLogin(formData)
   }
 
   render() {
