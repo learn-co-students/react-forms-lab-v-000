@@ -11,7 +11,6 @@ class TwitterMessage extends React.Component {
   }
 
   handleInputChange = event => {
-    // debugger
     this.setState({
       message: event.target.value,
       maxchars: this.state.maxchars - event.target.value.length
