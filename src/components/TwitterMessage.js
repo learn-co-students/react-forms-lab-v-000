@@ -4,8 +4,7 @@ class TwitterMessage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      message: '',
-
+      message: ''
     };
   }
 
@@ -13,6 +12,7 @@ class TwitterMessage extends React.Component {
      this.setState({
        message: event.target.value
      })
+
    }
 
    render() {
